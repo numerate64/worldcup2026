@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FIFA World Cup 2026</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <main class="wrap soccer-wrap">
+    <header class="page-header soccer-header">
+      <p><a class="home-link" href="https://github.com/numerate64/worldcup2026">GitHub</a></p>
+      <div class="soccer-title-row">
+        <div>
+          <h1>FIFA World Cup 2026</h1>
+          <p id="subtitle">All 104 matches with Eastern kickoff times, host venues, scores, points, bracket view, favorites, filters, and exports.</p>
+        </div>
+        <div class="soccer-badge" aria-label="Tournament dates">
+          <strong>June 11 - July 19</strong>
+          <span>Canada, Mexico, United States</span>
+        </div>
+      </div>
+      <div class="summary-strip" aria-label="World Cup summary">
+        <span id="matchCount">104 matches</span>
+        <span id="favoriteCount">0 favorites</span>
+        <span class="api-pill">Data: <a href="./world-cup-2026.json">world-cup-2026.json</a></span>
+      </div>
+      <div class="export-toolbar" aria-label="Export match list">
+        <button class="secondary-button" id="refreshScores" type="button">Refresh</button>
+        <button class="secondary-button" id="exportCsv" type="button">Export CSV</button>
+        <button class="secondary-button" id="exportXls" type="button">Export XLS</button>
+        <button class="secondary-button" id="exportIcs" type="button">Export ICS</button>
+      </div>
+    </header>
+
+    <nav class="soccer-view-tabs" aria-label="World Cup views">
+      <button class="view-tab is-active" type="button" data-view="schedule">Schedule</button>
+      <button class="view-tab" type="button" data-view="scores">Scores</button>
+      <button class="view-tab" type="button" data-view="points">Points</button>
+      <button class="view-tab" type="button" data-view="bracket">Bracket</button>
+    </nav>
+
+    <section class="soccer-controls" id="scheduleControls" aria-label="Match filters">
+      <label>
+        Search
+        <input id="searchFilter" type="search" autocomplete="off" placeholder="Team, venue, city">
+      </label>
+      <label>
+        Stage
+        <select id="stageFilter"></select>
+      </label>
+      <label>
+        Venue
+        <select id="venueFilter"></select>
+      </label>
+      <label class="checkbox-label">
+        <input id="favoritesOnly" type="checkbox">
+        Favorites only
+      </label>
+      <button class="secondary-button" id="resetFilters" type="button">Reset</button>
+    </section>
+
+    <section class="soccer-status" aria-live="polite">
+      <strong id="visibleCount">Loading matches...</strong>
+      <span id="dataNote">Openfootball updates can trail live results.</span>
+    </section>
+
+    <section class="soccer-pulse" id="soccerPulse" aria-label="Tournament status"></section>
+
+    <section class="match-table-wrap soccer-view" id="scheduleView" data-view-panel="schedule" aria-label="World Cup matches">
+      <table class="match-table">
+        <thead>
+          <tr>
+            <th scope="col">Fav</th>
+            <th scope="col">Date</th>
+            <th scope="col">Time</th>
+            <th scope="col">Match</th>
+            <th scope="col">Stage</th>
+            <th scope="col">Location</th>
+          </tr>
+        </thead>
+        <tbody id="matchRows"></tbody>
+      </table>
+    </section>
+
+    <section class="match-table-wrap soccer-view is-hidden" id="scoresView" data-view-panel="scores" aria-label="World Cup scores">
+      <table class="match-table score-table">
+        <thead>
+          <tr>
+            <th scope="col">Match</th>
+            <th scope="col">Status</th>
+            <th scope="col">Score</th>
+            <th scope="col">Stage</th>
+            <th scope="col">Date</th>
+            <th scope="col">Venue</th>
+          </tr>
+        </thead>
+        <tbody id="scoreRows"></tbody>
+      </table>
+    </section>
+
+    <section class="match-table-wrap soccer-view is-hidden" id="pointsView" data-view-panel="points" aria-label="World Cup group points">
+      <table class="match-table points-table">
+        <thead>
+          <tr>
+            <th scope="col">Group</th>
+            <th scope="col">Team</th>
+            <th scope="col">Pld</th>
+            <th scope="col">W</th>
+            <th scope="col">D</th>
+            <th scope="col">L</th>
+            <th scope="col">GF</th>
+            <th scope="col">GA</th>
+            <th scope="col">GD</th>
+            <th scope="col">Pts</th>
+          </tr>
+        </thead>
+        <tbody id="pointsRows"></tbody>
+      </table>
+    </section>
+
+    <section class="soccer-view is-hidden" id="bracketView" data-view-panel="bracket" aria-label="World Cup bracket">
+      <div class="bracket-snapshot" id="bracketSnapshot"></div>
+      <div class="bracket-board" id="bracketBoard"></div>
+    </section>
+
+    <section class="soccer-sources" aria-label="Cited sources">
+      <div class="section-heading">
+        <h2>Sources</h2>
+        <p>Fixtures and results are synced from openfootball.</p>
+      </div>
+      <ul id="sourceList"></ul>
+    </section>
+  </main>
+  <script src="./soccer.js"></script>
+</body>
+</html>

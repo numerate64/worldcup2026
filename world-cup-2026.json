@@ -1,0 +1,1759 @@
+{
+  "updatedAt": "2026-06-14T23:11:17.738Z",
+  "sourceUpdated": "2026-06-14",
+  "canonicalSource": "https://raw.githubusercontent.com/openfootball/worldcup.json/master/2026/worldcup.json",
+  "notes": [
+    "Fixtures and results are synced from openfootball/worldcup.json.",
+    "openfootball is hand-maintained and not live; use the Data Check card to catch stale scores."
+  ],
+  "matches": [
+    {
+      "id": "M001",
+      "date": "June 11, 2026",
+      "timeEt": "3 p.m. ET",
+      "kickoffEt": "2026-06-11T19:00:00.000Z",
+      "sourceDate": "2026-06-11",
+      "sourceTime": "13:00 UTC-6",
+      "stage": "Group Stage",
+      "group": "Group A",
+      "matchup": "Mexico vs South Africa",
+      "venue": "Mexico City Stadium",
+      "location": "Mexico City, Mexico",
+      "source": "openfootball/worldcup.json",
+      "status": "Final",
+      "score": {
+        "home": 2,
+        "away": 0
+      },
+      "halftimeScore": {
+        "home": 1,
+        "away": 0
+      },
+      "goals": {
+        "home": [
+          {
+            "name": "Julián Quiñones",
+            "minute": "9"
+          },
+          {
+            "name": "Raúl Jiménez",
+            "minute": "67"
+          }
+        ],
+        "away": []
+      }
+    },
+    {
+      "id": "M002",
+      "date": "June 11, 2026",
+      "timeEt": "10 p.m. ET",
+      "kickoffEt": "2026-06-12T02:00:00.000Z",
+      "sourceDate": "2026-06-11",
+      "sourceTime": "20:00 UTC-6",
+      "stage": "Group Stage",
+      "group": "Group A",
+      "matchup": "South Korea vs Czech Republic",
+      "venue": "Guadalajara Stadium",
+      "location": "Guadalajara, Mexico",
+      "source": "openfootball/worldcup.json",
+      "status": "Final",
+      "score": {
+        "home": 2,
+        "away": 1
+      },
+      "halftimeScore": {
+        "home": 0,
+        "away": 0
+      },
+      "goals": {
+        "home": [
+          {
+            "name": "Hwang In-Beom",
+            "minute": "67"
+          },
+          {
+            "name": "Oh Hyeon-Gyu",
+            "minute": "80"
+          }
+        ],
+        "away": [
+          {
+            "name": "Ladislav Krejcí",
+            "minute": "59"
+          }
+        ]
+      }
+    },
+    {
+      "id": "M003",
+      "date": "June 18, 2026",
+      "timeEt": "12 p.m. ET",
+      "kickoffEt": "2026-06-18T16:00:00.000Z",
+      "sourceDate": "2026-06-18",
+      "sourceTime": "12:00 UTC-4",
+      "stage": "Group Stage",
+      "group": "Group A",
+      "matchup": "Czech Republic vs South Africa",
+      "venue": "Atlanta Stadium",
+      "location": "Atlanta, Georgia",
+      "source": "openfootball/worldcup.json"
+    },
+    {
+      "id": "M004",
+      "date": "June 18, 2026",
+      "timeEt": "9 p.m. ET",
+      "kickoffEt": "2026-06-19T01:00:00.000Z",
+      "sourceDate": "2026-06-18",
+      "sourceTime": "19:00 UTC-6",
+      "stage": "Group Stage",
+      "group": "Group A",
+      "matchup": "Mexico vs South Korea",
+      "venue": "Guadalajara Stadium",
+      "location": "Guadalajara, Mexico",
+      "source": "openfootball/worldcup.json"
+    },
+    {
+      "id": "M005",
+      "date": "June 24, 2026",
+      "timeEt": "9 p.m. ET",
+      "kickoffEt": "2026-06-25T01:00:00.000Z",
+      "sourceDate": "2026-06-24",
+      "sourceTime": "19:00 UTC-6",
+      "stage": "Group Stage",
+      "group": "Group A",
+      "matchup": "Czech Republic vs Mexico",
+      "venue": "Mexico City Stadium",
+      "location": "Mexico City, Mexico",
+      "source": "openfootball/worldcup.json"
+    },
+    {
+      "id": "M006",
+      "date": "June 24, 2026",
+      "timeEt": "9 p.m. ET",
+      "kickoffEt": "2026-06-25T01:00:00.000Z",
+      "sourceDate": "2026-06-24",
+      "sourceTime": "19:00 UTC-6",
+      "stage": "Group Stage",
+      "group": "Group A",
+      "matchup": "South Africa vs South Korea",
+      "venue": "Monterrey Stadium",
+      "location": "Monterrey, Mexico",
+      "source": "openfootball/worldcup.json"
+    },
+    {
+      "id": "M007",
+      "date": "June 12, 2026",
+      "timeEt": "3 p.m. ET",
+      "kickoffEt": "2026-06-12T19:00:00.000Z",
+      "sourceDate": "2026-06-12",
+      "sourceTime": "15:00 UTC-4",
+      "stage": "Group Stage",
+      "group": "Group B",
+      "matchup": "Canada vs Bosnia & Herzegovina",
+      "venue": "Toronto Stadium",
+      "location": "Toronto, Ontario",
+      "source": "openfootball/worldcup.json",
+      "status": "Final",
+      "score": {
+        "home": 1,
+        "away": 1
+      },
+      "halftimeScore": {
+        "home": 0,
+        "away": 1
+      },
+      "goals": {
+        "home": [
+          {
+            "name": "Cyle Larin",
+            "minute": "78"
+          }
+        ],
+        "away": [
+          {
+            "name": "Jovo Lukić",
+            "minute": "21"
+          }
+        ]
+      }
+    },
+    {
+      "id": "M008",
+      "date": "June 13, 2026",
+      "timeEt": "3 p.m. ET",
+      "kickoffEt": "2026-06-13T19:00:00.000Z",
+      "sourceDate": "2026-06-13",
+      "sourceTime": "12:00 UTC-7",
+      "stage": "Group Stage",
+      "group": "Group B",
+      "matchup": "Qatar vs Switzerland",
+      "venue": "San Francisco Bay Stadium",
+      "location": "Santa Clara, California",
+      "source": "openfootball/worldcup.json",
+      "status": "Final",
+      "score": {
+        "home": 1,
+        "away": 1
+      },
+      "halftimeScore": {
+        "home": 0,
+        "away": 1
+      },
+      "goals": {
+        "home": [
+          {
+            "name": "Boualem Khoukhi",
+            "minute": "90+4"
+          }
+        ],
+        "away": [
+          {
+            "name": "Breel Embolo",
+            "minute": "17",
+            "penalty": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "M009",
+      "date": "June 18, 2026",
+      "timeEt": "3 p.m. ET",
+      "kickoffEt": "2026-06-18T19:00:00.000Z",
+      "sourceDate": "2026-06-18",
+      "sourceTime": "12:00 UTC-7",
+      "stage": "Group Stage",
+      "group": "Group B",
+      "matchup": "Switzerland vs Bosnia & Herzegovina",
+      "venue": "Los Angeles Stadium",
+      "location": "Inglewood, California",
+      "source": "openfootball/worldcup.json"
+    },
+    {
+      "id": "M010",
+      "date": "June 18, 2026",
+      "timeEt": "6 p.m. ET",
+      "kickoffEt": "2026-06-18T22:00:00.000Z",
+      "sourceDate": "2026-06-18",
+      "sourceTime": "15:00 UTC-7",
+      "stage": "Group Stage",
+      "group": "Group B",
+      "matchup": "Canada vs Qatar",
+      "venue": "BC Place Vancouver",
+      "location": "Vancouver, British Columbia",
+      "source": "openfootball/worldcup.json"
+    },
+    {
+      "id": "M011",
+      "date": "June 24, 2026",
+      "timeEt": "3 p.m. ET",
+      "kickoffEt": "2026-06-24T19:00:00.000Z",
+      "sourceDate": "2026-06-24",
+      "sourceTime": "12:00 UTC-7",
+      "stage": "Group Stage",
+      "group": "Group B",
+      "matchup": "Switzerland vs Canada",
+      "venue": "BC Place Vancouver",
+      "location": "Vancouver, British Columbia",
+      "source": "openfootball/worldcup.json"
+    },
+    {
+      "id": "M012",
+      "date": "June 24, 2026",
+      "timeEt": "3 p.m. ET",
+      "kickoffEt": "2026-06-24T19:00:00.000Z",
+      "sourceDate": "2026-06-24",
+      "sourceTime": "12:00 UTC-7",
+      "stage": "Group Stage",
+      "group": "Group B",
+      "matchup": "Bosnia & Herzegovina vs Qatar",
+      "venue": "Seattle Stadium",
+      "location": "Seattle, Washington",
+      "source": "openfootball/worldcup.json"
+    },
+    {
+      "id": "M013",
+      "date": "June 13, 2026",
+      "timeEt": "6 p.m. ET",
+      "kickoffEt": "2026-06-13T22:00:00.000Z",
+      "sourceDate": "2026-06-13",
+      "sourceTime": "18:00 UTC-4",
+      "stage": "Group Stage",
+      "group": "Group C",
+      "matchup": "Brazil vs Morocco",
+      "venue": "New York New Jersey Stadium",
+      "location": "East Rutherford, New Jersey",
+      "source": "openfootball/worldcup.json",
+      "status": "Final",
+      "score": {
+        "home": 1,
+        "away": 1
+      },
+      "halftimeScore": {
+        "home": 1,
+        "away": 1
+      },
+      "goals": {
+        "home": [
+          {
+            "name": "Vinícius Júnior",
+            "minute": "32"
+          }
+        ],
+        "away": [
+          {
+            "name": "Ismael Saibari",
+            "minute": "21"
+          }
+        ]
+      }
+    },
+    {
+      "id": "M014",
+      "date": "June 13, 2026",
+      "timeEt": "9 p.m. ET",
+      "kickoffEt": "2026-06-14T01:00:00.000Z",
+      "sourceDate": "2026-06-13",
+      "sourceTime": "21:00 UTC-4",
+      "stage": "Group Stage",
+      "group": "Group C",
+      "matchup": "Haiti vs Scotland",
+      "venue": "Boston Stadium",
+      "location": "Foxborough, Massachusetts",
+      "source": "openfootball/worldcup.json",
+      "status": "Final",
+      "score": {
+        "home": 0,
+        "away": 1
+      },
+      "halftimeScore": {
+        "home": 0,
+        "away": 1
+      },
+      "goals": {
+        "home": [],
+        "away": [
+          {
+            "name": "John McGinn",
+            "minute": "28"
+          }
+        ]
+      }
+    },
+    {
+      "id": "M015",
+      "date": "June 19, 2026",
+      "timeEt": "6 p.m. ET",
+      "kickoffEt": "2026-06-19T22:00:00.000Z",
+      "sourceDate": "2026-06-19",
+      "sourceTime": "18:00 UTC-4",
+      "stage": "Group Stage",
+      "group": "Group C",
+      "matchup": "Scotland vs Morocco",
+      "venue": "Boston Stadium",
+      "location": "Foxborough, Massachusetts",
+      "source": "openfootball/worldcup.json"
+    },
+    {
+      "id": "M016",
+      "date": "June 19, 2026",
+      "timeEt": "8:30 p.m. ET",
+      "kickoffEt": "2026-06-20T00:30:00.000Z",
+      "sourceDate": "2026-06-19",
+      "sourceTime": "20:30 UTC-4",
+      "stage": "Group Stage",
+      "group": "Group C",
+      "matchup": "Brazil vs Haiti",
+      "venue": "Philadelphia Stadium",
+      "location": "Philadelphia, Pennsylvania",
+      "source": "openfootball/worldcup.json"
+    },
+    {
+      "id": "M017",
+      "date": "June 24, 2026",
+      "timeEt": "6 p.m. ET",
+      "kickoffEt": "2026-06-24T22:00:00.000Z",
+      "sourceDate": "2026-06-24",
+      "sourceTime": "18:00 UTC-4",
+      "stage": "Group Stage",
+      "group": "Group C",
+      "matchup": "Scotland vs Brazil",
+      "venue": "Miami Stadium",
+      "location": "Miami Gardens, Florida",
+      "source": "openfootball/worldcup.json"
+    },
+    {
+      "id": "M018",
+      "date": "June 24, 2026",
+      "timeEt": "6 p.m. ET",
+      "kickoffEt": "2026-06-24T22:00:00.000Z",
+      "sourceDate": "2026-06-24",
+      "sourceTime": "18:00 UTC-4",
+      "stage": "Group Stage",
+      "group": "Group C",
+      "matchup": "Morocco vs Haiti",
+      "venue": "Atlanta Stadium",
+      "location": "Atlanta, Georgia",
+      "source": "openfootball/worldcup.json"
+    },
+    {
+      "id": "M019",
+      "date": "June 12, 2026",
+      "timeEt": "9 p.m. ET",
+      "kickoffEt": "2026-06-13T01:00:00.000Z",
+      "sourceDate": "2026-06-12",
+      "sourceTime": "18:00 UTC-7",
+      "stage": "Group Stage",
+      "group": "Group D",
+      "matchup": "USA vs Paraguay",
+      "venue": "Los Angeles Stadium",
+      "location": "Inglewood, California",
+      "source": "openfootball/worldcup.json",
+      "status": "Final",
+      "score": {
+        "home": 4,
+        "away": 1
+      },
+      "halftimeScore": {
+        "home": 3,
+        "away": 0
+      },
+      "goals": {
+        "home": [
+          {
+            "name": "Damian Bobadilla",
+            "minute": "7",
+            "owngoal": true
+          },
+          {
+            "name": "Folarin Balogun",
+            "minute": "31"
+          },
+          {
+            "name": "Folarin Balogun",
+            "minute": "45+5"
+          },
+          {
+            "name": "Giovanni Reyna",
+            "minute": "90+8"
+          }
+        ],
+        "away": [
+          {
+            "name": "Mauricio",
+            "minute": "73"
+          }
+        ]
+      }
+    },
+    {
+      "id": "M020",
+      "date": "June 14, 2026",
+      "timeEt": "12 a.m. ET",
+      "kickoffEt": "2026-06-14T04:00:00.000Z",
+      "sourceDate": "2026-06-13",
+      "sourceTime": "21:00 UTC-7",
+      "stage": "Group Stage",
+      "group": "Group D",
+      "matchup": "Australia vs Turkey",
+      "venue": "BC Place Vancouver",
+      "location": "Vancouver, British Columbia",
+      "source": "openfootball/worldcup.json",
+      "status": "Final",
+      "score": {
+        "home": 2,
+        "away": 0
+      },
+      "halftimeScore": {
+        "home": 1,
+        "away": 0
+      },
+      "goals": {
+        "home": [
+          {
+            "name": "Nestory Irankunda",
+            "minute": "27"
+          },
+          {
+            "name": "Connor Metcalfe",
+            "minute": "75"
+          }
+        ],
+        "away": []
+      }
+    },
+    {
+      "id": "M021",
+      "date": "June 19, 2026",
+      "timeEt": "3 p.m. ET",
+      "kickoffEt": "2026-06-19T19:00:00.000Z",
+      "sourceDate": "2026-06-19",
+      "sourceTime": "12:00 UTC-7",
+      "stage": "Group Stage",
+      "group": "Group D",
+      "matchup": "USA vs Australia",
+      "venue": "Seattle Stadium",
+      "location": "Seattle, Washington",
+      "source": "openfootball/worldcup.json"
+    },
+    {
+      "id": "M022",
+      "date": "June 19, 2026",
+      "timeEt": "11 p.m. ET",
+      "kickoffEt": "2026-06-20T03:00:00.000Z",
+      "sourceDate": "2026-06-19",
+      "sourceTime": "20:00 UTC-7",
+      "stage": "Group Stage",
+      "group": "Group D",
+      "matchup": "Turkey vs Paraguay",
+      "venue": "San Francisco Bay Stadium",
+      "location": "Santa Clara, California",
+      "source": "openfootball/worldcup.json"
+    },
+    {
+      "id": "M023",
+      "date": "June 25, 2026",
+      "timeEt": "10 p.m. ET",
+      "kickoffEt": "2026-06-26T02:00:00.000Z",
+      "sourceDate": "2026-06-25",
+      "sourceTime": "19:00 UTC-7",
+      "stage": "Group Stage",
+      "group": "Group D",
+      "matchup": "Turkey vs USA",
+      "venue": "Los Angeles Stadium",
+      "location": "Inglewood, California",
+      "source": "openfootball/worldcup.json"
+    },
+    {
+      "id": "M024",
+      "date": "June 25, 2026",
+      "timeEt": "10 p.m. ET",
+      "kickoffEt": "2026-06-26T02:00:00.000Z",
+      "sourceDate": "2026-06-25",
+      "sourceTime": "19:00 UTC-7",
+      "stage": "Group Stage",
+      "group": "Group D",
+      "matchup": "Paraguay vs Australia",
+      "venue": "San Francisco Bay Stadium",
+      "location": "Santa Clara, California",
+      "source": "openfootball/worldcup.json"
+    },
+    {
+      "id": "M025",
+      "date": "June 14, 2026",
+      "timeEt": "1 p.m. ET",
+      "kickoffEt": "2026-06-14T17:00:00.000Z",
+      "sourceDate": "2026-06-14",
+      "sourceTime": "12:00 UTC-5",
+      "stage": "Group Stage",
+      "group": "Group E",
+      "matchup": "Germany vs Curaçao",
+      "venue": "Houston Stadium",
+      "location": "Houston, Texas",
+      "source": "openfootball/worldcup.json",
+      "status": "Final",
+      "score": {
+        "home": 7,
+        "away": 1
+      },
+      "halftimeScore": {
+        "home": 3,
+        "away": 1
+      },
+      "goals": {
+        "home": [
+          {
+            "name": "Felix Nmecha",
+            "minute": "6"
+          },
+          {
+            "name": "Nico Schlotterbeck",
+            "minute": "38"
+          },
+          {
+            "name": "Kai Havertz",
+            "minute": "45+5",
+            "penalty": true
+          },
+          {
+            "name": "Kai Havertz",
+            "minute": "88"
+          },
+          {
+            "name": "Jamal Musiala",
+            "minute": "47"
+          },
+          {
+            "name": "Nathaniel Brown",
+            "minute": "68"
+          },
+          {
+            "name": "Deniz Undav",
+            "minute": "78"
+          }
+        ],
+        "away": [
+          {
+            "name": "Livano Comenencia",
+            "minute": "21"
+          }
+        ]
+      }
+    },
+    {
+      "id": "M026",
+      "date": "June 14, 2026",
+      "timeEt": "7 p.m. ET",
+      "kickoffEt": "2026-06-14T23:00:00.000Z",
+      "sourceDate": "2026-06-14",
+      "sourceTime": "19:00 UTC-4",
+      "stage": "Group Stage",
+      "group": "Group E",
+      "matchup": "Ivory Coast vs Ecuador",
+      "venue": "Philadelphia Stadium",
+      "location": "Philadelphia, Pennsylvania",
+      "source": "openfootball/worldcup.json"
+    },
+    {
+      "id": "M027",
+      "date": "June 20, 2026",
+      "timeEt": "4 p.m. ET",
+      "kickoffEt": "2026-06-20T20:00:00.000Z",
+      "sourceDate": "2026-06-20",
+      "sourceTime": "16:00 UTC-4",
+      "stage": "Group Stage",
+      "group": "Group E",
+      "matchup": "Germany vs Ivory Coast",
+      "venue": "Toronto Stadium",
+      "location": "Toronto, Ontario",
+      "source": "openfootball/worldcup.json"
+    },
+    {
+      "id": "M028",
+      "date": "June 20, 2026",
+      "timeEt": "8 p.m. ET",
+      "kickoffEt": "2026-06-21T00:00:00.000Z",
+      "sourceDate": "2026-06-20",
+      "sourceTime": "19:00 UTC-5",
+      "stage": "Group Stage",
+      "group": "Group E",
+      "matchup": "Ecuador vs Curaçao",
+      "venue": "Kansas City Stadium",
+      "location": "Kansas City, Missouri",
+      "source": "openfootball/worldcup.json"
+    },
+    {
+      "id": "M029",
+      "date": "June 25, 2026",
+      "timeEt": "4 p.m. ET",
+      "kickoffEt": "2026-06-25T20:00:00.000Z",
+      "sourceDate": "2026-06-25",
+      "sourceTime": "16:00 UTC-4",
+      "stage": "Group Stage",
+      "group": "Group E",
+      "matchup": "Curaçao vs Ivory Coast",
+      "venue": "Philadelphia Stadium",
+      "location": "Philadelphia, Pennsylvania",
+      "source": "openfootball/worldcup.json"
+    },
+    {
+      "id": "M030",
+      "date": "June 25, 2026",
+      "timeEt": "4 p.m. ET",
+      "kickoffEt": "2026-06-25T20:00:00.000Z",
+      "sourceDate": "2026-06-25",
+      "sourceTime": "16:00 UTC-4",
+      "stage": "Group Stage",
+      "group": "Group E",
+      "matchup": "Ecuador vs Germany",
+      "venue": "New York New Jersey Stadium",
+      "location": "East Rutherford, New Jersey",
+      "source": "openfootball/worldcup.json"
+    },
+    {
+      "id": "M031",
+      "date": "June 14, 2026",
+      "timeEt": "4 p.m. ET",
+      "kickoffEt": "2026-06-14T20:00:00.000Z",
+      "sourceDate": "2026-06-14",
+      "sourceTime": "15:00 UTC-5",
+      "stage": "Group Stage",
+      "group": "Group F",
+      "matchup": "Netherlands vs Japan",
+      "venue": "Dallas Stadium",
+      "location": "Arlington, Texas",
+      "source": "openfootball/worldcup.json",
+      "status": "Final",
+      "score": {
+        "home": 2,
+        "away": 2
+      },
+      "halftimeScore": {
+        "home": 0,
+        "away": 0
+      },
+      "goals": {
+        "home": [
+          {
+            "name": "Virgil van Dijk",
+            "minute": "51"
+          },
+          {
+            "name": "Crysencio Summerville",
+            "minute": "64"
+          }
+        ],
+        "away": [
+          {
+            "name": "Keito Nakamura",
+            "minute": "57"
+          },
+          {
+            "name": "Daichi Kamada",
+            "minute": "88"
+          }
+        ]
+      }
+    },
+    {
+      "id": "M032",
+      "date": "June 14, 2026",
+      "timeEt": "10 p.m. ET",
+      "kickoffEt": "2026-06-15T02:00:00.000Z",
+      "sourceDate": "2026-06-14",
+      "sourceTime": "20:00 UTC-6",
+      "stage": "Group Stage",
+      "group": "Group F",
+      "matchup": "Sweden vs Tunisia",
+      "venue": "Monterrey Stadium",
+      "location": "Monterrey, Mexico",
+      "source": "openfootball/worldcup.json"
+    },
+    {
+      "id": "M033",
+      "date": "June 20, 2026",
+      "timeEt": "1 p.m. ET",
+      "kickoffEt": "2026-06-20T17:00:00.000Z",
+      "sourceDate": "2026-06-20",
+      "sourceTime": "12:00 UTC-5",
+      "stage": "Group Stage",
+      "group": "Group F",
+      "matchup": "Netherlands vs Sweden",
+      "venue": "Houston Stadium",
+      "location": "Houston, Texas",
+      "source": "openfootball/worldcup.json"
+    },
+    {
+      "id": "M034",
+      "date": "June 21, 2026",
+      "timeEt": "12 a.m. ET",
+      "kickoffEt": "2026-06-21T04:00:00.000Z",
+      "sourceDate": "2026-06-20",
+      "sourceTime": "22:00 UTC-6",
+      "stage": "Group Stage",
+      "group": "Group F",
+      "matchup": "Tunisia vs Japan",
+      "venue": "Monterrey Stadium",
+      "location": "Monterrey, Mexico",
+      "source": "openfootball/worldcup.json"
+    },
+    {
+      "id": "M035",
+      "date": "June 25, 2026",
+      "timeEt": "7 p.m. ET",
+      "kickoffEt": "2026-06-25T23:00:00.000Z",
+      "sourceDate": "2026-06-25",
+      "sourceTime": "18:00 UTC-5",
+      "stage": "Group Stage",
+      "group": "Group F",
+      "matchup": "Japan vs Sweden",
+      "venue": "Dallas Stadium",
+      "location": "Arlington, Texas",
+      "source": "openfootball/worldcup.json"
+    },
+    {
+      "id": "M036",
+      "date": "June 25, 2026",
+      "timeEt": "7 p.m. ET",
+      "kickoffEt": "2026-06-25T23:00:00.000Z",
+      "sourceDate": "2026-06-25",
+      "sourceTime": "18:00 UTC-5",
+      "stage": "Group Stage",
+      "group": "Group F",
+      "matchup": "Tunisia vs Netherlands",
+      "venue": "Kansas City Stadium",
+      "location": "Kansas City, Missouri",
+      "source": "openfootball/worldcup.json"
+    },
+    {
+      "id": "M037",
+      "date": "June 15, 2026",
+      "timeEt": "3 p.m. ET",
+      "kickoffEt": "2026-06-15T19:00:00.000Z",
+      "sourceDate": "2026-06-15",
+      "sourceTime": "12:00 UTC-7",
+      "stage": "Group Stage",
+      "group": "Group G",
+      "matchup": "Belgium vs Egypt",
+      "venue": "Seattle Stadium",
+      "location": "Seattle, Washington",
+      "source": "openfootball/worldcup.json"
+    },
+    {
+      "id": "M038",
+      "date": "June 15, 2026",
+      "timeEt": "9 p.m. ET",
+      "kickoffEt": "2026-06-16T01:00:00.000Z",
+      "sourceDate": "2026-06-15",
+      "sourceTime": "18:00 UTC-7",
+      "stage": "Group Stage",
+      "group": "Group G",
+      "matchup": "Iran vs New Zealand",
+      "venue": "Los Angeles Stadium",
+      "location": "Inglewood, California",
+      "source": "openfootball/worldcup.json"
+    },
+    {
+      "id": "M039",
+      "date": "June 21, 2026",
+      "timeEt": "3 p.m. ET",
+      "kickoffEt": "2026-06-21T19:00:00.000Z",
+      "sourceDate": "2026-06-21",
+      "sourceTime": "12:00 UTC-7",
+      "stage": "Group Stage",
+      "group": "Group G",
+      "matchup": "Belgium vs Iran",
+      "venue": "Los Angeles Stadium",
+      "location": "Inglewood, California",
+      "source": "openfootball/worldcup.json"
+    },
+    {
+      "id": "M040",
+      "date": "June 21, 2026",
+      "timeEt": "9 p.m. ET",
+      "kickoffEt": "2026-06-22T01:00:00.000Z",
+      "sourceDate": "2026-06-21",
+      "sourceTime": "18:00 UTC-7",
+      "stage": "Group Stage",
+      "group": "Group G",
+      "matchup": "New Zealand vs Egypt",
+      "venue": "BC Place Vancouver",
+      "location": "Vancouver, British Columbia",
+      "source": "openfootball/worldcup.json"
+    },
+    {
+      "id": "M041",
+      "date": "June 26, 2026",
+      "timeEt": "11 p.m. ET",
+      "kickoffEt": "2026-06-27T03:00:00.000Z",
+      "sourceDate": "2026-06-26",
+      "sourceTime": "20:00 UTC-7",
+      "stage": "Group Stage",
+      "group": "Group G",
+      "matchup": "Egypt vs Iran",
+      "venue": "Seattle Stadium",
+      "location": "Seattle, Washington",
+      "source": "openfootball/worldcup.json"
+    },
+    {
+      "id": "M042",
+      "date": "June 26, 2026",
+      "timeEt": "11 p.m. ET",
+      "kickoffEt": "2026-06-27T03:00:00.000Z",
+      "sourceDate": "2026-06-26",
+      "sourceTime": "20:00 UTC-7",
+      "stage": "Group Stage",
+      "group": "Group G",
+      "matchup": "New Zealand vs Belgium",
+      "venue": "BC Place Vancouver",
+      "location": "Vancouver, British Columbia",
+      "source": "openfootball/worldcup.json"
+    },
+    {
+      "id": "M043",
+      "date": "June 15, 2026",
+      "timeEt": "12 p.m. ET",
+      "kickoffEt": "2026-06-15T16:00:00.000Z",
+      "sourceDate": "2026-06-15",
+      "sourceTime": "12:00 UTC-4",
+      "stage": "Group Stage",
+      "group": "Group H",
+      "matchup": "Spain vs Cabo Verde",
+      "venue": "Atlanta Stadium",
+      "location": "Atlanta, Georgia",
+      "source": "openfootball/worldcup.json"
+    },
+    {
+      "id": "M044",
+      "date": "June 15, 2026",
+      "timeEt": "6 p.m. ET",
+      "kickoffEt": "2026-06-15T22:00:00.000Z",
+      "sourceDate": "2026-06-15",
+      "sourceTime": "18:00 UTC-4",
+      "stage": "Group Stage",
+      "group": "Group H",
+      "matchup": "Saudi Arabia vs Uruguay",
+      "venue": "Miami Stadium",
+      "location": "Miami Gardens, Florida",
+      "source": "openfootball/worldcup.json"
+    },
+    {
+      "id": "M045",
+      "date": "June 21, 2026",
+      "timeEt": "12 p.m. ET",
+      "kickoffEt": "2026-06-21T16:00:00.000Z",
+      "sourceDate": "2026-06-21",
+      "sourceTime": "12:00 UTC-4",
+      "stage": "Group Stage",
+      "group": "Group H",
+      "matchup": "Spain vs Saudi Arabia",
+      "venue": "Atlanta Stadium",
+      "location": "Atlanta, Georgia",
+      "source": "openfootball/worldcup.json"
+    },
+    {
+      "id": "M046",
+      "date": "June 21, 2026",
+      "timeEt": "6 p.m. ET",
+      "kickoffEt": "2026-06-21T22:00:00.000Z",
+      "sourceDate": "2026-06-21",
+      "sourceTime": "18:00 UTC-4",
+      "stage": "Group Stage",
+      "group": "Group H",
+      "matchup": "Uruguay vs Cabo Verde",
+      "venue": "Miami Stadium",
+      "location": "Miami Gardens, Florida",
+      "source": "openfootball/worldcup.json"
+    },
+    {
+      "id": "M047",
+      "date": "June 26, 2026",
+      "timeEt": "8 p.m. ET",
+      "kickoffEt": "2026-06-27T00:00:00.000Z",
+      "sourceDate": "2026-06-26",
+      "sourceTime": "19:00 UTC-5",
+      "stage": "Group Stage",
+      "group": "Group H",
+      "matchup": "Cabo Verde vs Saudi Arabia",
+      "venue": "Houston Stadium",
+      "location": "Houston, Texas",
+      "source": "openfootball/worldcup.json"
+    },
+    {
+      "id": "M048",
+      "date": "June 26, 2026",
+      "timeEt": "8 p.m. ET",
+      "kickoffEt": "2026-06-27T00:00:00.000Z",
+      "sourceDate": "2026-06-26",
+      "sourceTime": "18:00 UTC-6",
+      "stage": "Group Stage",
+      "group": "Group H",
+      "matchup": "Uruguay vs Spain",
+      "venue": "Guadalajara Stadium",
+      "location": "Guadalajara, Mexico",
+      "source": "openfootball/worldcup.json"
+    },
+    {
+      "id": "M049",
+      "date": "June 16, 2026",
+      "timeEt": "3 p.m. ET",
+      "kickoffEt": "2026-06-16T19:00:00.000Z",
+      "sourceDate": "2026-06-16",
+      "sourceTime": "15:00 UTC-4",
+      "stage": "Group Stage",
+      "group": "Group I",
+      "matchup": "France vs Senegal",
+      "venue": "New York New Jersey Stadium",
+      "location": "East Rutherford, New Jersey",
+      "source": "openfootball/worldcup.json"
+    },
+    {
+      "id": "M050",
+      "date": "June 16, 2026",
+      "timeEt": "6 p.m. ET",
+      "kickoffEt": "2026-06-16T22:00:00.000Z",
+      "sourceDate": "2026-06-16",
+      "sourceTime": "18:00 UTC-4",
+      "stage": "Group Stage",
+      "group": "Group I",
+      "matchup": "Iraq vs Norway",
+      "venue": "Boston Stadium",
+      "location": "Foxborough, Massachusetts",
+      "source": "openfootball/worldcup.json"
+    },
+    {
+      "id": "M051",
+      "date": "June 22, 2026",
+      "timeEt": "5 p.m. ET",
+      "kickoffEt": "2026-06-22T21:00:00.000Z",
+      "sourceDate": "2026-06-22",
+      "sourceTime": "17:00 UTC-4",
+      "stage": "Group Stage",
+      "group": "Group I",
+      "matchup": "France vs Iraq",
+      "venue": "Philadelphia Stadium",
+      "location": "Philadelphia, Pennsylvania",
+      "source": "openfootball/worldcup.json"
+    },
+    {
+      "id": "M052",
+      "date": "June 22, 2026",
+      "timeEt": "8 p.m. ET",
+      "kickoffEt": "2026-06-23T00:00:00.000Z",
+      "sourceDate": "2026-06-22",
+      "sourceTime": "20:00 UTC-4",
+      "stage": "Group Stage",
+      "group": "Group I",
+      "matchup": "Norway vs Senegal",
+      "venue": "New York New Jersey Stadium",
+      "location": "East Rutherford, New Jersey",
+      "source": "openfootball/worldcup.json"
+    },
+    {
+      "id": "M053",
+      "date": "June 26, 2026",
+      "timeEt": "3 p.m. ET",
+      "kickoffEt": "2026-06-26T19:00:00.000Z",
+      "sourceDate": "2026-06-26",
+      "sourceTime": "15:00 UTC-4",
+      "stage": "Group Stage",
+      "group": "Group I",
+      "matchup": "Norway vs France",
+      "venue": "Boston Stadium",
+      "location": "Foxborough, Massachusetts",
+      "source": "openfootball/worldcup.json"
+    },
+    {
+      "id": "M054",
+      "date": "June 26, 2026",
+      "timeEt": "3 p.m. ET",
+      "kickoffEt": "2026-06-26T19:00:00.000Z",
+      "sourceDate": "2026-06-26",
+      "sourceTime": "15:00 UTC-4",
+      "stage": "Group Stage",
+      "group": "Group I",
+      "matchup": "Senegal vs Iraq",
+      "venue": "Toronto Stadium",
+      "location": "Toronto, Ontario",
+      "source": "openfootball/worldcup.json"
+    },
+    {
+      "id": "M055",
+      "date": "June 16, 2026",
+      "timeEt": "9 p.m. ET",
+      "kickoffEt": "2026-06-17T01:00:00.000Z",
+      "sourceDate": "2026-06-16",
+      "sourceTime": "20:00 UTC-5",
+      "stage": "Group Stage",
+      "group": "Group J",
+      "matchup": "Argentina vs Algeria",
+      "venue": "Kansas City Stadium",
+      "location": "Kansas City, Missouri",
+      "source": "openfootball/worldcup.json"
+    },
+    {
+      "id": "M056",
+      "date": "June 17, 2026",
+      "timeEt": "12 a.m. ET",
+      "kickoffEt": "2026-06-17T04:00:00.000Z",
+      "sourceDate": "2026-06-16",
+      "sourceTime": "21:00 UTC-7",
+      "stage": "Group Stage",
+      "group": "Group J",
+      "matchup": "Austria vs Jordan",
+      "venue": "San Francisco Bay Stadium",
+      "location": "Santa Clara, California",
+      "source": "openfootball/worldcup.json"
+    },
+    {
+      "id": "M057",
+      "date": "June 22, 2026",
+      "timeEt": "1 p.m. ET",
+      "kickoffEt": "2026-06-22T17:00:00.000Z",
+      "sourceDate": "2026-06-22",
+      "sourceTime": "12:00 UTC-5",
+      "stage": "Group Stage",
+      "group": "Group J",
+      "matchup": "Argentina vs Austria",
+      "venue": "Dallas Stadium",
+      "location": "Arlington, Texas",
+      "source": "openfootball/worldcup.json"
+    },
+    {
+      "id": "M058",
+      "date": "June 22, 2026",
+      "timeEt": "11 p.m. ET",
+      "kickoffEt": "2026-06-23T03:00:00.000Z",
+      "sourceDate": "2026-06-22",
+      "sourceTime": "20:00 UTC-7",
+      "stage": "Group Stage",
+      "group": "Group J",
+      "matchup": "Jordan vs Algeria",
+      "venue": "San Francisco Bay Stadium",
+      "location": "Santa Clara, California",
+      "source": "openfootball/worldcup.json"
+    },
+    {
+      "id": "M059",
+      "date": "June 27, 2026",
+      "timeEt": "10 p.m. ET",
+      "kickoffEt": "2026-06-28T02:00:00.000Z",
+      "sourceDate": "2026-06-27",
+      "sourceTime": "21:00 UTC-5",
+      "stage": "Group Stage",
+      "group": "Group J",
+      "matchup": "Algeria vs Austria",
+      "venue": "Kansas City Stadium",
+      "location": "Kansas City, Missouri",
+      "source": "openfootball/worldcup.json"
+    },
+    {
+      "id": "M060",
+      "date": "June 27, 2026",
+      "timeEt": "10 p.m. ET",
+      "kickoffEt": "2026-06-28T02:00:00.000Z",
+      "sourceDate": "2026-06-27",
+      "sourceTime": "21:00 UTC-5",
+      "stage": "Group Stage",
+      "group": "Group J",
+      "matchup": "Jordan vs Argentina",
+      "venue": "Dallas Stadium",
+      "location": "Arlington, Texas",
+      "source": "openfootball/worldcup.json"
+    },
+    {
+      "id": "M061",
+      "date": "June 17, 2026",
+      "timeEt": "1 p.m. ET",
+      "kickoffEt": "2026-06-17T17:00:00.000Z",
+      "sourceDate": "2026-06-17",
+      "sourceTime": "12:00 UTC-5",
+      "stage": "Group Stage",
+      "group": "Group K",
+      "matchup": "Portugal vs DR Congo",
+      "venue": "Houston Stadium",
+      "location": "Houston, Texas",
+      "source": "openfootball/worldcup.json"
+    },
+    {
+      "id": "M062",
+      "date": "June 17, 2026",
+      "timeEt": "10 p.m. ET",
+      "kickoffEt": "2026-06-18T02:00:00.000Z",
+      "sourceDate": "2026-06-17",
+      "sourceTime": "20:00 UTC-6",
+      "stage": "Group Stage",
+      "group": "Group K",
+      "matchup": "Uzbekistan vs Colombia",
+      "venue": "Mexico City Stadium",
+      "location": "Mexico City, Mexico",
+      "source": "openfootball/worldcup.json"
+    },
+    {
+      "id": "M063",
+      "date": "June 23, 2026",
+      "timeEt": "1 p.m. ET",
+      "kickoffEt": "2026-06-23T17:00:00.000Z",
+      "sourceDate": "2026-06-23",
+      "sourceTime": "12:00 UTC-5",
+      "stage": "Group Stage",
+      "group": "Group K",
+      "matchup": "Portugal vs Uzbekistan",
+      "venue": "Houston Stadium",
+      "location": "Houston, Texas",
+      "source": "openfootball/worldcup.json"
+    },
+    {
+      "id": "M064",
+      "date": "June 23, 2026",
+      "timeEt": "10 p.m. ET",
+      "kickoffEt": "2026-06-24T02:00:00.000Z",
+      "sourceDate": "2026-06-23",
+      "sourceTime": "20:00 UTC-6",
+      "stage": "Group Stage",
+      "group": "Group K",
+      "matchup": "Colombia vs DR Congo",
+      "venue": "Guadalajara Stadium",
+      "location": "Guadalajara, Mexico",
+      "source": "openfootball/worldcup.json"
+    },
+    {
+      "id": "M065",
+      "date": "June 27, 2026",
+      "timeEt": "7:30 p.m. ET",
+      "kickoffEt": "2026-06-27T23:30:00.000Z",
+      "sourceDate": "2026-06-27",
+      "sourceTime": "19:30 UTC-4",
+      "stage": "Group Stage",
+      "group": "Group K",
+      "matchup": "Colombia vs Portugal",
+      "venue": "Miami Stadium",
+      "location": "Miami Gardens, Florida",
+      "source": "openfootball/worldcup.json"
+    },
+    {
+      "id": "M066",
+      "date": "June 27, 2026",
+      "timeEt": "7:30 p.m. ET",
+      "kickoffEt": "2026-06-27T23:30:00.000Z",
+      "sourceDate": "2026-06-27",
+      "sourceTime": "19:30 UTC-4",
+      "stage": "Group Stage",
+      "group": "Group K",
+      "matchup": "DR Congo vs Uzbekistan",
+      "venue": "Atlanta Stadium",
+      "location": "Atlanta, Georgia",
+      "source": "openfootball/worldcup.json"
+    },
+    {
+      "id": "M067",
+      "date": "June 17, 2026",
+      "timeEt": "4 p.m. ET",
+      "kickoffEt": "2026-06-17T20:00:00.000Z",
+      "sourceDate": "2026-06-17",
+      "sourceTime": "15:00 UTC-5",
+      "stage": "Group Stage",
+      "group": "Group L",
+      "matchup": "England vs Croatia",
+      "venue": "Dallas Stadium",
+      "location": "Arlington, Texas",
+      "source": "openfootball/worldcup.json"
+    },
+    {
+      "id": "M068",
+      "date": "June 17, 2026",
+      "timeEt": "7 p.m. ET",
+      "kickoffEt": "2026-06-17T23:00:00.000Z",
+      "sourceDate": "2026-06-17",
+      "sourceTime": "19:00 UTC-4",
+      "stage": "Group Stage",
+      "group": "Group L",
+      "matchup": "Ghana vs Panama",
+      "venue": "Toronto Stadium",
+      "location": "Toronto, Ontario",
+      "source": "openfootball/worldcup.json"
+    },
+    {
+      "id": "M069",
+      "date": "June 23, 2026",
+      "timeEt": "4 p.m. ET",
+      "kickoffEt": "2026-06-23T20:00:00.000Z",
+      "sourceDate": "2026-06-23",
+      "sourceTime": "16:00 UTC-4",
+      "stage": "Group Stage",
+      "group": "Group L",
+      "matchup": "England vs Ghana",
+      "venue": "Boston Stadium",
+      "location": "Foxborough, Massachusetts",
+      "source": "openfootball/worldcup.json"
+    },
+    {
+      "id": "M070",
+      "date": "June 23, 2026",
+      "timeEt": "7 p.m. ET",
+      "kickoffEt": "2026-06-23T23:00:00.000Z",
+      "sourceDate": "2026-06-23",
+      "sourceTime": "19:00 UTC-4",
+      "stage": "Group Stage",
+      "group": "Group L",
+      "matchup": "Panama vs Croatia",
+      "venue": "Toronto Stadium",
+      "location": "Toronto, Ontario",
+      "source": "openfootball/worldcup.json"
+    },
+    {
+      "id": "M071",
+      "date": "June 27, 2026",
+      "timeEt": "5 p.m. ET",
+      "kickoffEt": "2026-06-27T21:00:00.000Z",
+      "sourceDate": "2026-06-27",
+      "sourceTime": "17:00 UTC-4",
+      "stage": "Group Stage",
+      "group": "Group L",
+      "matchup": "Panama vs England",
+      "venue": "New York New Jersey Stadium",
+      "location": "East Rutherford, New Jersey",
+      "source": "openfootball/worldcup.json"
+    },
+    {
+      "id": "M072",
+      "date": "June 27, 2026",
+      "timeEt": "5 p.m. ET",
+      "kickoffEt": "2026-06-27T21:00:00.000Z",
+      "sourceDate": "2026-06-27",
+      "sourceTime": "17:00 UTC-4",
+      "stage": "Group Stage",
+      "group": "Group L",
+      "matchup": "Croatia vs Ghana",
+      "venue": "Philadelphia Stadium",
+      "location": "Philadelphia, Pennsylvania",
+      "source": "openfootball/worldcup.json"
+    },
+    {
+      "id": "M073",
+      "date": "June 28, 2026",
+      "timeEt": "3 p.m. ET",
+      "kickoffEt": "2026-06-28T19:00:00.000Z",
+      "sourceDate": "2026-06-28",
+      "sourceTime": "12:00 UTC-7",
+      "stage": "Round of 32",
+      "group": "",
+      "matchup": "2A vs 2B",
+      "venue": "Los Angeles Stadium",
+      "location": "Inglewood, California",
+      "source": "openfootball/worldcup.json"
+    },
+    {
+      "id": "M074",
+      "date": "June 29, 2026",
+      "timeEt": "4:30 p.m. ET",
+      "kickoffEt": "2026-06-29T20:30:00.000Z",
+      "sourceDate": "2026-06-29",
+      "sourceTime": "16:30 UTC-4",
+      "stage": "Round of 32",
+      "group": "",
+      "matchup": "1E vs 3A/B/C/D/F",
+      "venue": "Houston Stadium",
+      "location": "Houston, Texas",
+      "source": "openfootball/worldcup.json"
+    },
+    {
+      "id": "M075",
+      "date": "June 29, 2026",
+      "timeEt": "9 p.m. ET",
+      "kickoffEt": "2026-06-30T01:00:00.000Z",
+      "sourceDate": "2026-06-29",
+      "sourceTime": "19:00 UTC-6",
+      "stage": "Round of 32",
+      "group": "",
+      "matchup": "1F vs 2C",
+      "venue": "Boston Stadium",
+      "location": "Foxborough, Massachusetts",
+      "source": "openfootball/worldcup.json"
+    },
+    {
+      "id": "M076",
+      "date": "June 29, 2026",
+      "timeEt": "1 p.m. ET",
+      "kickoffEt": "2026-06-29T17:00:00.000Z",
+      "sourceDate": "2026-06-29",
+      "sourceTime": "12:00 UTC-5",
+      "stage": "Round of 32",
+      "group": "",
+      "matchup": "1C vs 2F",
+      "venue": "Monterrey Stadium",
+      "location": "Monterrey, Mexico",
+      "source": "openfootball/worldcup.json"
+    },
+    {
+      "id": "M077",
+      "date": "June 30, 2026",
+      "timeEt": "5 p.m. ET",
+      "kickoffEt": "2026-06-30T21:00:00.000Z",
+      "sourceDate": "2026-06-30",
+      "sourceTime": "17:00 UTC-4",
+      "stage": "Round of 32",
+      "group": "",
+      "matchup": "1I vs 3C/D/F/G/H",
+      "venue": "Dallas Stadium",
+      "location": "Arlington, Texas",
+      "source": "openfootball/worldcup.json"
+    },
+    {
+      "id": "M078",
+      "date": "June 30, 2026",
+      "timeEt": "1 p.m. ET",
+      "kickoffEt": "2026-06-30T17:00:00.000Z",
+      "sourceDate": "2026-06-30",
+      "sourceTime": "12:00 UTC-5",
+      "stage": "Round of 32",
+      "group": "",
+      "matchup": "2E vs 2I",
+      "venue": "New York New Jersey Stadium",
+      "location": "East Rutherford, New Jersey",
+      "source": "openfootball/worldcup.json"
+    },
+    {
+      "id": "M079",
+      "date": "June 30, 2026",
+      "timeEt": "9 p.m. ET",
+      "kickoffEt": "2026-07-01T01:00:00.000Z",
+      "sourceDate": "2026-06-30",
+      "sourceTime": "19:00 UTC-6",
+      "stage": "Round of 32",
+      "group": "",
+      "matchup": "1A vs 3C/E/F/H/I",
+      "venue": "Mexico City Stadium",
+      "location": "Mexico City, Mexico",
+      "source": "openfootball/worldcup.json"
+    },
+    {
+      "id": "M080",
+      "date": "July 1, 2026",
+      "timeEt": "12 p.m. ET",
+      "kickoffEt": "2026-07-01T16:00:00.000Z",
+      "sourceDate": "2026-07-01",
+      "sourceTime": "12:00 UTC-4",
+      "stage": "Round of 32",
+      "group": "",
+      "matchup": "1L vs 3E/H/I/J/K",
+      "venue": "Atlanta Stadium",
+      "location": "Atlanta, Georgia",
+      "source": "openfootball/worldcup.json"
+    },
+    {
+      "id": "M081",
+      "date": "July 1, 2026",
+      "timeEt": "8 p.m. ET",
+      "kickoffEt": "2026-07-02T00:00:00.000Z",
+      "sourceDate": "2026-07-01",
+      "sourceTime": "17:00 UTC-7",
+      "stage": "Round of 32",
+      "group": "",
+      "matchup": "1D vs 3B/E/F/I/J",
+      "venue": "Seattle Stadium",
+      "location": "Seattle, Washington",
+      "source": "openfootball/worldcup.json"
+    },
+    {
+      "id": "M082",
+      "date": "July 1, 2026",
+      "timeEt": "4 p.m. ET",
+      "kickoffEt": "2026-07-01T20:00:00.000Z",
+      "sourceDate": "2026-07-01",
+      "sourceTime": "13:00 UTC-7",
+      "stage": "Round of 32",
+      "group": "",
+      "matchup": "1G vs 3A/E/H/I/J",
+      "venue": "San Francisco Bay Stadium",
+      "location": "Santa Clara, California",
+      "source": "openfootball/worldcup.json"
+    },
+    {
+      "id": "M083",
+      "date": "July 2, 2026",
+      "timeEt": "7 p.m. ET",
+      "kickoffEt": "2026-07-02T23:00:00.000Z",
+      "sourceDate": "2026-07-02",
+      "sourceTime": "19:00 UTC-4",
+      "stage": "Round of 32",
+      "group": "",
+      "matchup": "2K vs 2L",
+      "venue": "Los Angeles Stadium",
+      "location": "Inglewood, California",
+      "source": "openfootball/worldcup.json"
+    },
+    {
+      "id": "M084",
+      "date": "July 2, 2026",
+      "timeEt": "3 p.m. ET",
+      "kickoffEt": "2026-07-02T19:00:00.000Z",
+      "sourceDate": "2026-07-02",
+      "sourceTime": "12:00 UTC-7",
+      "stage": "Round of 32",
+      "group": "",
+      "matchup": "1H vs 2J",
+      "venue": "Toronto Stadium",
+      "location": "Toronto, Ontario",
+      "source": "openfootball/worldcup.json"
+    },
+    {
+      "id": "M085",
+      "date": "July 2, 2026",
+      "timeEt": "11 p.m. ET",
+      "kickoffEt": "2026-07-03T03:00:00.000Z",
+      "sourceDate": "2026-07-02",
+      "sourceTime": "20:00 UTC-7",
+      "stage": "Round of 32",
+      "group": "",
+      "matchup": "1B vs 3E/F/G/I/J",
+      "venue": "BC Place Vancouver",
+      "location": "Vancouver, British Columbia",
+      "source": "openfootball/worldcup.json"
+    },
+    {
+      "id": "M086",
+      "date": "July 3, 2026",
+      "timeEt": "6 p.m. ET",
+      "kickoffEt": "2026-07-03T22:00:00.000Z",
+      "sourceDate": "2026-07-03",
+      "sourceTime": "18:00 UTC-4",
+      "stage": "Round of 32",
+      "group": "",
+      "matchup": "1J vs 2H",
+      "venue": "Dallas Stadium",
+      "location": "Arlington, Texas",
+      "source": "openfootball/worldcup.json"
+    },
+    {
+      "id": "M087",
+      "date": "July 3, 2026",
+      "timeEt": "9:30 p.m. ET",
+      "kickoffEt": "2026-07-04T01:30:00.000Z",
+      "sourceDate": "2026-07-03",
+      "sourceTime": "20:30 UTC-5",
+      "stage": "Round of 32",
+      "group": "",
+      "matchup": "1K vs 3D/E/I/J/L",
+      "venue": "Miami Stadium",
+      "location": "Miami Gardens, Florida",
+      "source": "openfootball/worldcup.json"
+    },
+    {
+      "id": "M088",
+      "date": "July 3, 2026",
+      "timeEt": "2 p.m. ET",
+      "kickoffEt": "2026-07-03T18:00:00.000Z",
+      "sourceDate": "2026-07-03",
+      "sourceTime": "13:00 UTC-5",
+      "stage": "Round of 32",
+      "group": "",
+      "matchup": "2D vs 2G",
+      "venue": "Kansas City Stadium",
+      "location": "Kansas City, Missouri",
+      "source": "openfootball/worldcup.json"
+    },
+    {
+      "id": "M089",
+      "date": "July 4, 2026",
+      "timeEt": "5 p.m. ET",
+      "kickoffEt": "2026-07-04T21:00:00.000Z",
+      "sourceDate": "2026-07-04",
+      "sourceTime": "17:00 UTC-4",
+      "stage": "Round of 16",
+      "group": "",
+      "matchup": "W74 vs W77",
+      "venue": "Houston Stadium",
+      "location": "Houston, Texas",
+      "source": "openfootball/worldcup.json"
+    },
+    {
+      "id": "M090",
+      "date": "July 4, 2026",
+      "timeEt": "1 p.m. ET",
+      "kickoffEt": "2026-07-04T17:00:00.000Z",
+      "sourceDate": "2026-07-04",
+      "sourceTime": "12:00 UTC-5",
+      "stage": "Round of 16",
+      "group": "",
+      "matchup": "W73 vs W75",
+      "venue": "Philadelphia Stadium",
+      "location": "Philadelphia, Pennsylvania",
+      "source": "openfootball/worldcup.json"
+    },
+    {
+      "id": "M091",
+      "date": "July 5, 2026",
+      "timeEt": "4 p.m. ET",
+      "kickoffEt": "2026-07-05T20:00:00.000Z",
+      "sourceDate": "2026-07-05",
+      "sourceTime": "16:00 UTC-4",
+      "stage": "Round of 16",
+      "group": "",
+      "matchup": "W76 vs W78",
+      "venue": "New York New Jersey Stadium",
+      "location": "East Rutherford, New Jersey",
+      "source": "openfootball/worldcup.json"
+    },
+    {
+      "id": "M092",
+      "date": "July 5, 2026",
+      "timeEt": "8 p.m. ET",
+      "kickoffEt": "2026-07-06T00:00:00.000Z",
+      "sourceDate": "2026-07-05",
+      "sourceTime": "18:00 UTC-6",
+      "stage": "Round of 16",
+      "group": "",
+      "matchup": "W79 vs W80",
+      "venue": "Mexico City Stadium",
+      "location": "Mexico City, Mexico",
+      "source": "openfootball/worldcup.json"
+    },
+    {
+      "id": "M093",
+      "date": "July 6, 2026",
+      "timeEt": "3 p.m. ET",
+      "kickoffEt": "2026-07-06T19:00:00.000Z",
+      "sourceDate": "2026-07-06",
+      "sourceTime": "14:00 UTC-5",
+      "stage": "Round of 16",
+      "group": "",
+      "matchup": "W83 vs W84",
+      "venue": "Dallas Stadium",
+      "location": "Arlington, Texas",
+      "source": "openfootball/worldcup.json"
+    },
+    {
+      "id": "M094",
+      "date": "July 6, 2026",
+      "timeEt": "8 p.m. ET",
+      "kickoffEt": "2026-07-07T00:00:00.000Z",
+      "sourceDate": "2026-07-06",
+      "sourceTime": "17:00 UTC-7",
+      "stage": "Round of 16",
+      "group": "",
+      "matchup": "W81 vs W82",
+      "venue": "Seattle Stadium",
+      "location": "Seattle, Washington",
+      "source": "openfootball/worldcup.json"
+    },
+    {
+      "id": "M095",
+      "date": "July 7, 2026",
+      "timeEt": "12 p.m. ET",
+      "kickoffEt": "2026-07-07T16:00:00.000Z",
+      "sourceDate": "2026-07-07",
+      "sourceTime": "12:00 UTC-4",
+      "stage": "Round of 16",
+      "group": "",
+      "matchup": "W86 vs W88",
+      "venue": "Atlanta Stadium",
+      "location": "Atlanta, Georgia",
+      "source": "openfootball/worldcup.json"
+    },
+    {
+      "id": "M096",
+      "date": "July 7, 2026",
+      "timeEt": "4 p.m. ET",
+      "kickoffEt": "2026-07-07T20:00:00.000Z",
+      "sourceDate": "2026-07-07",
+      "sourceTime": "13:00 UTC-7",
+      "stage": "Round of 16",
+      "group": "",
+      "matchup": "W85 vs W87",
+      "venue": "BC Place Vancouver",
+      "location": "Vancouver, British Columbia",
+      "source": "openfootball/worldcup.json"
+    },
+    {
+      "id": "M097",
+      "date": "July 9, 2026",
+      "timeEt": "4 p.m. ET",
+      "kickoffEt": "2026-07-09T20:00:00.000Z",
+      "sourceDate": "2026-07-09",
+      "sourceTime": "16:00 UTC-4",
+      "stage": "Quarterfinals",
+      "group": "",
+      "matchup": "W89 vs W90",
+      "venue": "Boston Stadium",
+      "location": "Foxborough, Massachusetts",
+      "source": "openfootball/worldcup.json"
+    },
+    {
+      "id": "M098",
+      "date": "July 10, 2026",
+      "timeEt": "3 p.m. ET",
+      "kickoffEt": "2026-07-10T19:00:00.000Z",
+      "sourceDate": "2026-07-10",
+      "sourceTime": "12:00 UTC-7",
+      "stage": "Quarterfinals",
+      "group": "",
+      "matchup": "W93 vs W94",
+      "venue": "Los Angeles Stadium",
+      "location": "Inglewood, California",
+      "source": "openfootball/worldcup.json"
+    },
+    {
+      "id": "M099",
+      "date": "July 11, 2026",
+      "timeEt": "5 p.m. ET",
+      "kickoffEt": "2026-07-11T21:00:00.000Z",
+      "sourceDate": "2026-07-11",
+      "sourceTime": "17:00 UTC-4",
+      "stage": "Quarterfinals",
+      "group": "",
+      "matchup": "W91 vs W92",
+      "venue": "Miami Stadium",
+      "location": "Miami Gardens, Florida",
+      "source": "openfootball/worldcup.json"
+    },
+    {
+      "id": "M100",
+      "date": "July 11, 2026",
+      "timeEt": "9 p.m. ET",
+      "kickoffEt": "2026-07-12T01:00:00.000Z",
+      "sourceDate": "2026-07-11",
+      "sourceTime": "20:00 UTC-5",
+      "stage": "Quarterfinals",
+      "group": "",
+      "matchup": "W95 vs W96",
+      "venue": "Kansas City Stadium",
+      "location": "Kansas City, Missouri",
+      "source": "openfootball/worldcup.json"
+    },
+    {
+      "id": "M101",
+      "date": "July 14, 2026",
+      "timeEt": "3 p.m. ET",
+      "kickoffEt": "2026-07-14T19:00:00.000Z",
+      "sourceDate": "2026-07-14",
+      "sourceTime": "14:00 UTC-5",
+      "stage": "Semifinals",
+      "group": "",
+      "matchup": "W97 vs W98",
+      "venue": "Dallas Stadium",
+      "location": "Arlington, Texas",
+      "source": "openfootball/worldcup.json"
+    },
+    {
+      "id": "M102",
+      "date": "July 15, 2026",
+      "timeEt": "3 p.m. ET",
+      "kickoffEt": "2026-07-15T19:00:00.000Z",
+      "sourceDate": "2026-07-15",
+      "sourceTime": "15:00 UTC-4",
+      "stage": "Semifinals",
+      "group": "",
+      "matchup": "W99 vs W100",
+      "venue": "Atlanta Stadium",
+      "location": "Atlanta, Georgia",
+      "source": "openfootball/worldcup.json"
+    },
+    {
+      "id": "M103",
+      "date": "July 18, 2026",
+      "timeEt": "5 p.m. ET",
+      "kickoffEt": "2026-07-18T21:00:00.000Z",
+      "sourceDate": "2026-07-18",
+      "sourceTime": "17:00 UTC-4",
+      "stage": "Third Place",
+      "group": "",
+      "matchup": "L101 vs L102",
+      "venue": "Hard Rock Stadium",
+      "location": "Miami Gardens, Florida",
+      "source": "openfootball/worldcup.json"
+    },
+    {
+      "id": "M104",
+      "date": "July 19, 2026",
+      "timeEt": "3 p.m. ET",
+      "kickoffEt": "2026-07-19T19:00:00.000Z",
+      "sourceDate": "2026-07-19",
+      "sourceTime": "15:00 UTC-4",
+      "stage": "Final",
+      "group": "",
+      "matchup": "W101 vs W102",
+      "venue": "New York New Jersey Stadium",
+      "location": "East Rutherford, New Jersey",
+      "source": "openfootball/worldcup.json"
+    }
+  ],
+  "sources": [
+    {
+      "name": "World Cup 2026 JSON",
+      "publisher": "openfootball/worldcup.json",
+      "url": "https://raw.githubusercontent.com/openfootball/worldcup.json/master/2026/worldcup.json",
+      "usedFor": "Canonical fixtures, teams, venues, kickoff source times, scores, and goals"
+    }
+  ],
+  "api": {
+    "endpoint": "./world-cup-2026.json",
+    "aliases": [],
+    "queryParameters": [
+      "search or q",
+      "stage",
+      "group",
+      "venue"
+    ]
+  }
+}

@@ -1,0 +1,682 @@
+const FAVORITES_KEY = 'worldCup2026Favorites.v1';
+const SCORE_REFRESH_INTERVAL_MS = 2 * 60 * 60 * 1000;
+const KNOCKOUT_STAGES = ['Round of 32', 'Round of 16', 'Quarterfinals', 'Semifinals', 'Third Place', 'Final'];
+const TEAM_FLAGS = {
+  Algeria: '🇩🇿',
+  Argentina: '🇦🇷',
+  Australia: '🇦🇺',
+  Austria: '🇦🇹',
+  Belgium: '🇧🇪',
+  'Bosnia & Herzegovina': '🇧🇦',
+  Brazil: '🇧🇷',
+  Canada: '🇨🇦',
+  'Cabo Verde': '🇨🇻',
+  'Cape Verde': '🇨🇻',
+  Colombia: '🇨🇴',
+  Croatia: '🇭🇷',
+  Curaçao: '🇨🇼',
+  'Czech Republic': '🇨🇿',
+  'DR Congo': '🇨🇩',
+  Ecuador: '🇪🇨',
+  Egypt: '🇪🇬',
+  England: '\u{1F3F4}\u{E0067}\u{E0062}\u{E0065}\u{E006E}\u{E0067}\u{E007F}',
+  France: '🇫🇷',
+  Germany: '🇩🇪',
+  Ghana: '🇬🇭',
+  Haiti: '🇭🇹',
+  Iran: '🇮🇷',
+  Iraq: '🇮🇶',
+  'Ivory Coast': '🇨🇮',
+  Japan: '🇯🇵',
+  Jordan: '🇯🇴',
+  Mexico: '🇲🇽',
+  Morocco: '🇲🇦',
+  Netherlands: '🇳🇱',
+  'New Zealand': '🇳🇿',
+  Norway: '🇳🇴',
+  Panama: '🇵🇦',
+  Paraguay: '🇵🇾',
+  Portugal: '🇵🇹',
+  Qatar: '🇶🇦',
+  'Saudi Arabia': '🇸🇦',
+  Scotland: '\u{1F3F4}\u{E0067}\u{E0062}\u{E0073}\u{E0063}\u{E0074}\u{E007F}',
+  Senegal: '🇸🇳',
+  'South Africa': '🇿🇦',
+  'South Korea': '🇰🇷',
+  Spain: '🇪🇸',
+  Sweden: '🇸🇪',
+  Switzerland: '🇨🇭',
+  Tunisia: '🇹🇳',
+  Turkey: '🇹🇷',
+  USA: '🇺🇸',
+  Uruguay: '🇺🇾',
+  Uzbekistan: '🇺🇿'
+};
+
+const TEAM_NAME_OVERRIDES = {
+  'Cape Verde': 'Cabo Verde'
+};
+
+let matches = [];
+let sources = [];
+let favorites = loadFavorites();
+let lastRefreshedAt = null;
+let currentView = 'schedule';
+
+const els = {
+  matchRows: document.getElementById('matchRows'),
+  searchFilter: document.getElementById('searchFilter'),
+  stageFilter: document.getElementById('stageFilter'),
+  venueFilter: document.getElementById('venueFilter'),
+  favoritesOnly: document.getElementById('favoritesOnly'),
+  scheduleControls: document.getElementById('scheduleControls'),
+  resetFilters: document.getElementById('resetFilters'),
+  refreshScores: document.getElementById('refreshScores'),
+  exportCsv: document.getElementById('exportCsv'),
+  exportXls: document.getElementById('exportXls'),
+  exportIcs: document.getElementById('exportIcs'),
+  visibleCount: document.getElementById('visibleCount'),
+  dataNote: document.getElementById('dataNote'),
+  soccerPulse: document.getElementById('soccerPulse'),
+  matchCount: document.getElementById('matchCount'),
+  favoriteCount: document.getElementById('favoriteCount'),
+  sourceList: document.getElementById('sourceList'),
+  scoreRows: document.getElementById('scoreRows'),
+  pointsRows: document.getElementById('pointsRows'),
+  bracketSnapshot: document.getElementById('bracketSnapshot'),
+  bracketBoard: document.getElementById('bracketBoard'),
+  viewTabs: [...document.querySelectorAll('.view-tab')],
+  viewPanels: [...document.querySelectorAll('[data-view-panel]')]
+};
+
+function loadFavorites() {
+  try {
+    const parsed = JSON.parse(localStorage.getItem(FAVORITES_KEY));
+    return Array.isArray(parsed) ? new Set(parsed) : new Set();
+  } catch {
+    return new Set();
+  }
+}
+
+function saveFavorites() {
+  localStorage.setItem(FAVORITES_KEY, JSON.stringify([...favorites]));
+}
+
+function html(value) {
+  return String(value ?? '')
+    .replaceAll('&', '&amp;')
+    .replaceAll('<', '&lt;')
+    .replaceAll('>', '&gt;')
+    .replaceAll('"', '&quot;');
+}
+
+function displayTeamName(team) {
+  const trimmed = String(team || '').trim();
+  return TEAM_NAME_OVERRIDES[trimmed] || trimmed;
+}
+
+function displayMatchup(matchup) {
+  const teams = splitTeams(matchup);
+  if (teams.length < 2) return displayTeamName(matchup);
+  return teams.join(' vs ');
+}
+
+function flagForTeam(team) {
+  const displayName = displayTeamName(team);
+  return TEAM_FLAGS[displayName] || TEAM_FLAGS[String(team || '').trim()] || '';
+}
+
+function teamText(team) {
+  const displayName = displayTeamName(team);
+  const flag = flagForTeam(team);
+  return [flag, displayName].filter(Boolean).join(' ');
+}
+
+function teamHtml(team) {
+  const displayName = displayTeamName(team);
+  const flag = flagForTeam(team);
+  if (!flag) return html(displayName);
+  return `<span class="team-label"><span class="team-flag" aria-hidden="true">${html(flag)}</span><span>${html(displayName)}</span></span>`;
+}
+
+function matchupHtml(matchup) {
+  const teams = splitTeams(matchup);
+  if (teams.length < 2) return html(matchup);
+  return `${teamHtml(teams[0])}<span class="match-vs">vs</span>${teamHtml(teams[1])}`;
+}
+
+function statusClass(status) {
+  const normalized = normalize(status);
+  if (normalized.includes('final')) return 'is-final';
+  if (normalized.includes('live')) return 'is-live';
+  if (normalized.includes('awaiting')) return 'is-awaiting';
+  return 'is-scheduled';
+}
+
+function optionList(values, label) {
+  return [`<option value="">${label}</option>`, ...values.map(value => (
+    `<option value="${html(value)}">${html(value)}</option>`
+  ))].join('');
+}
+
+function populateFilters() {
+  els.stageFilter.innerHTML = optionList([...new Set(matches.map(match => match.stage).filter(Boolean))], 'All stages');
+  els.venueFilter.innerHTML = optionList([...new Set(matches.map(match => match.venue).filter(Boolean))].sort(), 'All venues');
+}
+
+function renderSources() {
+  els.sourceList.innerHTML = sources.map(source => (
+    `<li>
+      <a href="${html(source.url)}" target="_blank" rel="noreferrer">${html(source.name)}</a>
+      <span>${html(source.publisher)} · ${html(source.usedFor)}</span>
+    </li>`
+  )).join('');
+}
+
+function formatDate(match) {
+  const date = new Date(match.kickoffEt);
+  if (Number.isNaN(date.getTime())) return match.date;
+  return new Intl.DateTimeFormat('en-US', {
+    weekday: 'short',
+    month: 'short',
+    day: 'numeric'
+  }).format(date);
+}
+
+function normalize(text) {
+  return String(text || '').toLowerCase();
+}
+
+function splitTeams(matchup) {
+  return String(matchup || 'TBD vs. TBD')
+    .replace(/^Third-place match:\s*/i, '')
+    .split(/\s+vs\.?\s+/i)
+    .map(team => displayTeamName(team))
+    .filter(Boolean)
+    .slice(0, 2);
+}
+
+function scoreValue(match, index) {
+  const score = match.score || match.scores || {};
+  const keys = index === 0
+    ? ['home', 'homeScore', 'team1', 'team1Score', 'a', 'aScore']
+    : ['away', 'awayScore', 'team2', 'team2Score', 'b', 'bScore'];
+  for (const key of keys) {
+    if (score[key] !== undefined && score[key] !== null && score[key] !== '') return score[key];
+  }
+  if (Array.isArray(score) && score[index] !== undefined) return score[index];
+  return null;
+}
+
+function matchStatus(match) {
+  if (match.status) return match.status;
+  const kickoff = new Date(match.kickoffEt);
+  if (Number.isNaN(kickoff.getTime())) return 'Scheduled';
+  const now = Date.now();
+  if (now < kickoff.getTime()) return 'Scheduled';
+  if (now < kickoff.getTime() + 2 * 60 * 60 * 1000) return 'Live';
+  return 'Awaiting score';
+}
+
+function formatScore(match) {
+  const teams = splitTeams(match.matchup);
+  const homeScore = scoreValue(match, 0);
+  const awayScore = scoreValue(match, 1);
+  if (homeScore === null || awayScore === null) return 'Score pending';
+  return `${teamText(teams[0] || 'Team 1')} ${homeScore} - ${awayScore} ${teamText(teams[1] || 'Team 2')}`;
+}
+
+function numericScore(match, index) {
+  const value = scoreValue(match, index);
+  if (value === null) return null;
+  const number = Number(value);
+  return Number.isFinite(number) ? number : null;
+}
+
+function groupStandings() {
+  const standings = new Map();
+
+  function ensureTeam(group, team) {
+    const key = `${group}::${team}`;
+    if (!standings.has(key)) {
+      standings.set(key, {
+        group,
+        team,
+        played: 0,
+        wins: 0,
+        draws: 0,
+        losses: 0,
+        goalsFor: 0,
+        goalsAgainst: 0,
+        goalDifference: 0,
+        points: 0
+      });
+    }
+    return standings.get(key);
+  }
+
+  matches
+    .filter(match => match.stage === 'Group Stage' && match.group)
+    .forEach(match => {
+      const teams = splitTeams(match.matchup);
+      if (teams.length < 2 || teams.some(team => /^TBD$/i.test(team))) return;
+
+      const first = ensureTeam(match.group, teams[0]);
+      const second = ensureTeam(match.group, teams[1]);
+      const firstScore = numericScore(match, 0);
+      const secondScore = numericScore(match, 1);
+
+      if (firstScore === null || secondScore === null) return;
+
+      first.played += 1;
+      second.played += 1;
+      first.goalsFor += firstScore;
+      first.goalsAgainst += secondScore;
+      second.goalsFor += secondScore;
+      second.goalsAgainst += firstScore;
+
+      if (firstScore > secondScore) {
+        first.wins += 1;
+        second.losses += 1;
+        first.points += 3;
+      } else if (firstScore < secondScore) {
+        second.wins += 1;
+        first.losses += 1;
+        second.points += 3;
+      } else {
+        first.draws += 1;
+        second.draws += 1;
+        first.points += 1;
+        second.points += 1;
+      }
+
+      first.goalDifference = first.goalsFor - first.goalsAgainst;
+      second.goalDifference = second.goalsFor - second.goalsAgainst;
+    });
+
+  return [...standings.values()].sort((a, b) => (
+    a.group.localeCompare(b.group, undefined, { numeric: true })
+    || b.points - a.points
+    || b.goalDifference - a.goalDifference
+    || b.goalsFor - a.goalsFor
+    || a.team.localeCompare(b.team)
+  ));
+}
+
+function refreshMessage(prefix = '') {
+  const updated = lastRefreshedAt
+    ? new Intl.DateTimeFormat('en-US', { hour: 'numeric', minute: '2-digit' }).format(lastRefreshedAt)
+    : 'not yet';
+  return `${prefix}Last refreshed ${updated}. Auto-refreshes every 2 hours.`;
+}
+
+function getFilteredMatches() {
+  const search = normalize(els.searchFilter.value).trim();
+  const stage = els.stageFilter.value;
+  const venue = els.venueFilter.value;
+
+  return matches.filter(match => {
+    if (stage && match.stage !== stage) return false;
+    if (venue && match.venue !== venue) return false;
+    if (els.favoritesOnly.checked && !favorites.has(match.id)) return false;
+    if (!search) return true;
+
+    return [
+      match.matchup,
+      displayMatchup(match.matchup),
+      match.group,
+      match.stage,
+      match.venue,
+      match.location
+    ].some(value => normalize(value).includes(search));
+  }).sort((a, b) => new Date(a.kickoffEt) - new Date(b.kickoffEt));
+}
+
+function render() {
+  const filtered = getFilteredMatches();
+
+  els.matchRows.innerHTML = filtered.map(match => {
+    const isFavorite = favorites.has(match.id);
+    const location = [match.venue, match.location].filter(Boolean).join(' · ');
+    const group = match.group ? `<span class="match-group">${html(match.group)}</span>` : '';
+    return `<tr class="${hasScore(match) ? 'is-complete' : ''}">
+      <td>
+        <button class="favorite-button${isFavorite ? ' is-favorite' : ''}" type="button" data-id="${match.id}" onclick="toggleFavorite('${match.id}')" aria-label="${isFavorite ? 'Remove favorite' : 'Add favorite'}">${isFavorite ? '★' : '☆'}</button>
+      </td>
+      <td><strong>${html(formatDate(match))}</strong></td>
+      <td>${html(match.timeEt)}</td>
+      <td>${group}<span class="match-title">${matchupHtml(match.matchup)}</span></td>
+      <td>${html(match.stage)}</td>
+      <td>${html(location)}</td>
+    </tr>`;
+  }).join('') || '<tr><td colspan="6" class="empty-state">No matches match the current filters.</td></tr>';
+
+  const standings = groupStandings();
+  if (currentView === 'bracket') {
+    els.visibleCount.textContent = `${matches.filter(match => KNOCKOUT_STAGES.includes(match.stage)).length} bracket matches shown`;
+  } else if (currentView === 'points') {
+    els.visibleCount.textContent = `${standings.length} teams with accumulated points shown`;
+  } else {
+    const label = currentView === 'scores' ? 'scores' : 'matches';
+    els.visibleCount.textContent = `${filtered.length} of ${matches.length} ${label} shown`;
+  }
+  els.matchCount.textContent = `${matches.length} matches`;
+  els.favoriteCount.textContent = `${favorites.size} favorite${favorites.size === 1 ? '' : 's'}`;
+  renderPulse(standings);
+  renderScores(filtered);
+  renderPoints(standings);
+  renderBracket(standings);
+}
+
+function hasScore(match) {
+  return numericScore(match, 0) !== null && numericScore(match, 1) !== null;
+}
+
+function completedMatches() {
+  return matches
+    .filter(hasScore)
+    .sort((a, b) => new Date(b.kickoffEt) - new Date(a.kickoffEt));
+}
+
+function upcomingMatches(limit = 1) {
+  const now = Date.now();
+  return matches
+    .filter(match => !hasScore(match) && new Date(match.kickoffEt).getTime() >= now)
+    .sort((a, b) => new Date(a.kickoffEt) - new Date(b.kickoffEt))
+    .slice(0, limit);
+}
+
+function matchesAwaitingScores() {
+  const scoreWindowMs = 2.5 * 60 * 60 * 1000;
+  const now = Date.now();
+  return matches.filter(match => {
+    const kickoff = new Date(match.kickoffEt).getTime();
+    return !hasScore(match) && Number.isFinite(kickoff) && now > kickoff + scoreWindowMs;
+  });
+}
+
+function renderPulse(standings) {
+  const finals = completedMatches();
+  const next = upcomingMatches(1)[0];
+  const awaiting = matchesAwaitingScores();
+  const leader = standings
+    .filter(row => row.played > 0)
+    .sort((a, b) => (
+      b.points - a.points
+      || b.goalDifference - a.goalDifference
+      || b.goalsFor - a.goalsFor
+      || a.team.localeCompare(b.team)
+    ))[0];
+  const latest = finals[0];
+  const latestText = latest ? formatScore(latest) : 'No finals yet';
+  const nextText = next
+    ? `${splitTeams(next.matchup).map(teamText).join(' vs ')} · ${formatDate(next)} ${next.timeEt}`
+    : 'No upcoming fixtures';
+  const leaderText = leader
+    ? `${teamText(leader.team)} leads ${leader.group} (${leader.points} pts, ${leader.goalDifference > 0 ? '+' : ''}${leader.goalDifference})`
+    : 'No group leader yet';
+
+  els.soccerPulse.innerHTML = [
+    pulseCard('Progress', `${finals.length} / ${matches.length}`, 'final scores recorded'),
+    pulseCard('Latest Final', latestText, latest ? `${latest.stage}${latest.group ? ` · ${latest.group}` : ''}` : 'Waiting for results'),
+    pulseCard('Top Group Team', leaderText, 'based only on completed group matches'),
+    pulseCard('Next Up', nextText, next ? [next.venue, next.location].filter(Boolean).join(' · ') : 'Schedule complete'),
+    pulseCard('Data Check', awaiting.length ? `${awaiting.length} pending` : 'Clean', awaiting.length ? 'past expected final window' : 'no overdue scores')
+  ].join('');
+}
+
+function pulseCard(label, value, note) {
+  return `<article class="pulse-card">
+    <span>${html(label)}</span>
+    <strong>${html(value)}</strong>
+    <em>${html(note)}</em>
+  </article>`;
+}
+
+function renderScores(filtered) {
+  els.scoreRows.innerHTML = filtered.map(match => {
+    const teams = splitTeams(match.matchup);
+    const location = [match.venue, match.location].filter(Boolean).join(' · ');
+    return `<tr>
+      <td><span class="match-group">${html(match.id)}</span><span class="match-title">${matchupHtml(teams.join(' vs. ') || match.matchup)}</span></td>
+      <td><span class="score-status ${html(statusClass(matchStatus(match)))}">${html(matchStatus(match))}</span></td>
+      <td><strong>${html(formatScore(match))}</strong></td>
+      <td>${html(match.stage)}</td>
+      <td><strong>${html(formatDate(match))}</strong><span class="match-sub">${html(match.timeEt)}</span></td>
+      <td>${html(location)}</td>
+    </tr>`;
+  }).join('') || '<tr><td colspan="6" class="empty-state">No scores match the current filters.</td></tr>';
+}
+
+function renderPoints(standings) {
+  els.pointsRows.innerHTML = standings.map(row => `<tr>
+    <td><span class="match-group">${html(row.group)}</span></td>
+    <td><span class="match-title">${teamHtml(row.team)}</span></td>
+    <td>${row.played}</td>
+    <td>${row.wins}</td>
+    <td>${row.draws}</td>
+    <td>${row.losses}</td>
+    <td>${row.goalsFor}</td>
+    <td>${row.goalsAgainst}</td>
+    <td>${row.goalDifference > 0 ? '+' : ''}${row.goalDifference}</td>
+    <td><strong>${row.points}</strong></td>
+  </tr>`).join('') || '<tr><td colspan="10" class="empty-state">No completed group-stage matches yet.</td></tr>';
+}
+
+function renderBracket(standings) {
+  const knockoutMatches = matches.filter(match => KNOCKOUT_STAGES.includes(match.stage));
+  renderBracketSnapshot(standings);
+  els.bracketBoard.innerHTML = KNOCKOUT_STAGES.map(stage => {
+    const stageMatches = knockoutMatches.filter(match => match.stage === stage);
+    if (!stageMatches.length) return '';
+    return `<section class="bracket-column" aria-label="${html(stage)}">
+      <h2>${html(stage)}</h2>
+      <div class="bracket-games">
+        ${stageMatches.map(renderBracketGame).join('')}
+      </div>
+    </section>`;
+  }).join('');
+}
+
+function renderBracketSnapshot(standings) {
+  const completedGroupMatches = matches.filter(match => (
+    match.stage === 'Group Stage'
+    && numericScore(match, 0) !== null
+    && numericScore(match, 1) !== null
+  )).length;
+
+  if (!completedGroupMatches) {
+    els.bracketSnapshot.innerHTML = `<div class="bracket-note">
+      <strong>Knockout places are still TBD.</strong>
+      <span>Completed group results will appear here before the bracket slots are official.</span>
+    </div>`;
+    return;
+  }
+
+  const groups = new Map();
+  standings.forEach(row => {
+    if (!groups.has(row.group)) groups.set(row.group, []);
+    groups.get(row.group).push(row);
+  });
+
+  els.bracketSnapshot.innerHTML = `
+    <div class="bracket-note">
+      <strong>Current qualification picture</strong>
+      <span>Based on ${completedGroupMatches} completed group-stage match${completedGroupMatches === 1 ? '' : 'es'}. Top two advance; third-place teams are still comparison-dependent.</span>
+    </div>
+    <div class="bracket-groups">
+      ${[...groups.entries()].map(([group, rows]) => `<section class="bracket-group" aria-label="${html(group)} standings">
+        <h3>${html(group)}</h3>
+        ${rows.map((row, index) => `<div class="bracket-group-row${index < 2 ? ' is-advance' : index === 2 ? ' is-bubble' : ''}">
+          <span>${index + 1}</span>
+          <strong>${teamHtml(row.team)}</strong>
+          <em>${row.points} pts</em>
+          <small>${row.goalDifference > 0 ? '+' : ''}${row.goalDifference}</small>
+        </div>`).join('')}
+      </section>`).join('')}
+    </div>`;
+}
+
+function renderBracketGame(match) {
+  const teams = splitTeams(match.matchup);
+  const firstScore = scoreValue(match, 0);
+  const secondScore = scoreValue(match, 1);
+  const location = [match.venue, match.location].filter(Boolean).join(' · ');
+  return `<article class="bracket-game">
+    <div class="bracket-meta">
+      <span>${html(match.id)}</span>
+      <span>${html(formatDate(match))} · ${html(match.timeEt)}</span>
+    </div>
+    <div class="bracket-team">
+      <span class="bracket-team-name">${teamHtml(teams[0] || 'TBD')}</span>
+      <strong>${html(firstScore ?? '-')}</strong>
+    </div>
+    <div class="bracket-team">
+      <span class="bracket-team-name">${teamHtml(teams[1] || 'TBD')}</span>
+      <strong>${html(secondScore ?? '-')}</strong>
+    </div>
+    <p>${html(location)}</p>
+  </article>`;
+}
+
+function csvCell(value) {
+  return `"${String(value ?? '').replaceAll('"', '""')}"`;
+}
+
+function exportRows() {
+  return getFilteredMatches().map(match => ({
+    favorite: favorites.has(match.id) ? 'Yes' : 'No',
+    match: match.id,
+    date: match.date,
+    timeEt: match.timeEt,
+    stage: match.stage,
+    group: match.group,
+    matchup: displayMatchup(match.matchup),
+    venue: match.venue,
+    location: match.location
+  }));
+}
+
+function downloadFile(filename, mimeType, content) {
+  const blob = new Blob([content], { type: mimeType });
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement('a');
+  link.href = url;
+  link.download = filename;
+  document.body.append(link);
+  link.click();
+  link.remove();
+  URL.revokeObjectURL(url);
+}
+
+function exportCsv() {
+  const columns = ['Favorite', 'Match', 'Date', 'Time ET', 'Stage', 'Group', 'Matchup', 'Venue', 'Location'];
+  const keys = ['favorite', 'match', 'date', 'timeEt', 'stage', 'group', 'matchup', 'venue', 'location'];
+  const lines = [columns.map(csvCell).join(','), ...exportRows().map(row => keys.map(key => csvCell(row[key])).join(','))];
+  downloadFile('world-cup-2026-matches.csv', 'text/csv;charset=utf-8', lines.join('\r\n'));
+}
+
+function exportXls() {
+  const columns = ['Favorite', 'Match', 'Date', 'Time ET', 'Stage', 'Group', 'Matchup', 'Venue', 'Location'];
+  const keys = ['favorite', 'match', 'date', 'timeEt', 'stage', 'group', 'matchup', 'venue', 'location'];
+  const tableRows = exportRows().map(row => `<tr>${keys.map(key => `<td>${html(row[key])}</td>`).join('')}</tr>`).join('');
+  const tableHead = columns.map(column => `<th>${html(column)}</th>`).join('');
+  downloadFile('world-cup-2026-matches.xls', 'application/vnd.ms-excel;charset=utf-8', `<!doctype html><html><head><meta charset="utf-8"><title>World Cup 2026 Export</title></head><body><table><thead><tr>${tableHead}</tr></thead><tbody>${tableRows}</tbody></table></body></html>`);
+}
+
+function icsDate(value) {
+  return new Date(value).toISOString().replaceAll('-', '').replaceAll(':', '').replace(/\.\d{3}Z$/, 'Z');
+}
+
+function icsEscape(value) {
+  return String(value ?? '').replaceAll('\\', '\\\\').replaceAll(';', '\\;').replaceAll(',', '\\,').replaceAll('\n', '\\n');
+}
+
+function exportIcs() {
+  const lines = ['BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//OpenClaw//World Cup 2026//EN'];
+  getFilteredMatches().forEach(match => {
+    const start = new Date(match.kickoffEt);
+    const end = new Date(start.getTime() + 2 * 60 * 60 * 1000);
+    lines.push(
+      'BEGIN:VEVENT',
+      `UID:${match.id}@worldcup2026.openclaw`,
+      `DTSTAMP:${icsDate(new Date().toISOString())}`,
+      `DTSTART:${icsDate(match.kickoffEt)}`,
+      `DTEND:${icsDate(end.toISOString())}`,
+      `SUMMARY:${icsEscape(displayMatchup(match.matchup))}`,
+      `LOCATION:${icsEscape([match.venue, match.location].filter(Boolean).join(', '))}`,
+      `DESCRIPTION:${icsEscape(`${match.stage}${match.group ? ` - ${match.group}` : ''}`)}`,
+      'END:VEVENT'
+    );
+  });
+  lines.push('END:VCALENDAR');
+  downloadFile('world-cup-2026-matches.ics', 'text/calendar;charset=utf-8', lines.join('\r\n'));
+}
+
+function resetFilters() {
+  els.searchFilter.value = '';
+  els.stageFilter.value = '';
+  els.venueFilter.value = '';
+  els.favoritesOnly.checked = false;
+  render();
+}
+
+function toggleFavorite(id) {
+  if (!id) return;
+  if (favorites.has(id)) favorites.delete(id);
+  else favorites.add(id);
+  saveFavorites();
+  render();
+}
+
+function setView(view) {
+  currentView = view;
+  els.viewTabs.forEach(tab => tab.classList.toggle('is-active', tab.dataset.view === view));
+  els.viewPanels.forEach(panel => panel.classList.toggle('is-hidden', panel.dataset.viewPanel !== view));
+  els.scheduleControls.classList.toggle('is-hidden', false);
+  render();
+}
+
+async function loadSoccerData({ manual = false } = {}) {
+  if (manual) {
+    els.refreshScores.disabled = true;
+    els.dataNote.textContent = 'Refreshing scores and bracket data...';
+  }
+
+  try {
+    const response = await fetch(`./world-cup-2026.json?ts=${Date.now()}`, { cache: 'no-store' });
+    if (!response.ok) throw new Error(`Request failed (${response.status})`);
+    const data = await response.json();
+    matches = Array.isArray(data.matches) ? data.matches : [];
+    sources = Array.isArray(data.sources) ? data.sources : [];
+    lastRefreshedAt = new Date();
+    if (Array.isArray(data.notes) && data.notes.length) {
+      els.dataNote.textContent = `${data.notes.join(' ')} ${refreshMessage()}`;
+    } else {
+      els.dataNote.textContent = refreshMessage();
+    }
+    populateFilters();
+    renderSources();
+    render();
+  } catch (error) {
+    els.visibleCount.textContent = `Unable to load matches: ${error.message}`;
+    els.dataNote.textContent = refreshMessage('Refresh failed. ');
+  } finally {
+    els.refreshScores.disabled = false;
+  }
+}
+
+els.searchFilter.addEventListener('input', render);
+[els.stageFilter, els.venueFilter, els.favoritesOnly].forEach(control => {
+  control.addEventListener('change', render);
+});
+
+els.resetFilters.addEventListener('click', resetFilters);
+els.refreshScores.addEventListener('click', () => loadSoccerData({ manual: true }));
+els.exportCsv.addEventListener('click', exportCsv);
+els.exportXls.addEventListener('click', exportXls);
+els.exportIcs.addEventListener('click', exportIcs);
+els.viewTabs.forEach(tab => tab.addEventListener('click', () => setView(tab.dataset.view)));
+
+loadSoccerData();
+setInterval(loadSoccerData, SCORE_REFRESH_INTERVAL_MS);

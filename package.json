@@ -1,0 +1,5 @@
+{
+  "scripts": {
+    "sync:worldcup": "node scripts/sync-worldcup-openfootball.js"
+  }
+}
