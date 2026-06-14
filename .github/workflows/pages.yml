@@ -3,6 +3,12 @@ name: Deploy Pages
 on:
   push:
     branches: ["main"]
+    paths:
+      - ".github/workflows/pages.yml"
+      - "index.html"
+      - "soccer.js"
+      - "styles.css"
+      - "world-cup-2026.json"
   workflow_dispatch:
 
 permissions:
