@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-15T18:05:44.863Z",
+  "updatedAt": "2026-06-15T21:27:57.039Z",
   "sourceUpdated": "2026-06-15",
   "canonicalSource": "https://raw.githubusercontent.com/openfootball/worldcup.json/master/2026/worldcup.json",
   "notes": [
@@ -854,7 +854,31 @@
       "matchup": "Belgium vs Egypt",
       "venue": "Seattle Stadium",
       "location": "Seattle, Washington",
-      "source": "openfootball/worldcup.json"
+      "source": "openfootball/worldcup.json",
+      "status": "Final",
+      "score": {
+        "home": 1,
+        "away": 1
+      },
+      "halftimeScore": {
+        "home": 0,
+        "away": 1
+      },
+      "goals": {
+        "home": [
+          {
+            "name": "Mohamed Hany",
+            "minute": "66",
+            "owngoal": true
+          }
+        ],
+        "away": [
+          {
+            "name": "Emam Ashour",
+            "minute": "19"
+          }
+        ]
+      }
     },
     {
       "id": "M038",
