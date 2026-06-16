@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-16T00:05:24.947Z",
+  "updatedAt": "2026-06-16T05:39:51.652Z",
   "sourceUpdated": "2026-06-16",
   "canonicalSource": "https://raw.githubusercontent.com/openfootball/worldcup.json/master/2026/worldcup.json",
   "notes": [
@@ -892,7 +892,38 @@
       "matchup": "Iran vs New Zealand",
       "venue": "Los Angeles Stadium",
       "location": "Inglewood, California",
-      "source": "openfootball/worldcup.json"
+      "source": "openfootball/worldcup.json",
+      "status": "Final",
+      "score": {
+        "home": 2,
+        "away": 2
+      },
+      "halftimeScore": {
+        "home": 1,
+        "away": 1
+      },
+      "goals": {
+        "home": [
+          {
+            "name": "Ramin Rezaeian",
+            "minute": "32"
+          },
+          {
+            "name": "Mohammad Mohebbi",
+            "minute": "64"
+          }
+        ],
+        "away": [
+          {
+            "name": "Elijah Just",
+            "minute": "7"
+          },
+          {
+            "name": "Elijah Just",
+            "minute": "54"
+          }
+        ]
+      }
     },
     {
       "id": "M039",
@@ -985,7 +1016,30 @@
       "matchup": "Saudi Arabia vs Uruguay",
       "venue": "Miami Stadium",
       "location": "Miami Gardens, Florida",
-      "source": "openfootball/worldcup.json"
+      "source": "openfootball/worldcup.json",
+      "status": "Final",
+      "score": {
+        "home": 1,
+        "away": 1
+      },
+      "halftimeScore": {
+        "home": 1,
+        "away": 0
+      },
+      "goals": {
+        "home": [
+          {
+            "name": "Abdulelah Al-Amri",
+            "minute": "41"
+          }
+        ],
+        "away": [
+          {
+            "name": "Maxi Araújo",
+            "minute": "80"
+          }
+        ]
+      }
     },
     {
       "id": "M045",
