@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-16T17:26:22.317Z",
+  "updatedAt": "2026-06-16T21:22:44.467Z",
   "sourceUpdated": "2026-06-16",
   "canonicalSource": "https://raw.githubusercontent.com/openfootball/worldcup.json/master/2026/worldcup.json",
   "notes": [
@@ -1109,7 +1109,38 @@
       "matchup": "France vs Senegal",
       "venue": "New York New Jersey Stadium",
       "location": "East Rutherford, New Jersey",
-      "source": "openfootball/worldcup.json"
+      "source": "openfootball/worldcup.json",
+      "status": "Final",
+      "score": {
+        "home": 3,
+        "away": 1
+      },
+      "halftimeScore": {
+        "home": 0,
+        "away": 0
+      },
+      "goals": {
+        "home": [
+          {
+            "name": "Kylian Mbappé",
+            "minute": "66"
+          },
+          {
+            "name": "Bradley Barcola",
+            "minute": "82"
+          },
+          {
+            "name": "Kylian Mbappé",
+            "minute": "90+6"
+          }
+        ],
+        "away": [
+          {
+            "name": "Ibrahim Mbaye",
+            "minute": "90+5"
+          }
+        ]
+      }
     },
     {
       "id": "M050",
