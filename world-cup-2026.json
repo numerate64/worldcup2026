@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-17T16:45:08.772Z",
+  "updatedAt": "2026-06-17T19:33:17.237Z",
   "sourceUpdated": "2026-06-17",
   "canonicalSource": "https://raw.githubusercontent.com/openfootball/worldcup.json/master/2026/worldcup.json",
   "notes": [
@@ -1403,7 +1403,30 @@
       "matchup": "Portugal vs DR Congo",
       "venue": "Houston Stadium",
       "location": "Houston, Texas",
-      "source": "openfootball/worldcup.json"
+      "source": "openfootball/worldcup.json",
+      "status": "Final",
+      "score": {
+        "home": 1,
+        "away": 1
+      },
+      "halftimeScore": {
+        "home": 1,
+        "away": 1
+      },
+      "goals": {
+        "home": [
+          {
+            "name": "João Neves",
+            "minute": "6"
+          }
+        ],
+        "away": [
+          {
+            "name": "Yoane Wissa",
+            "minute": "45+5"
+          }
+        ]
+      }
     },
     {
       "id": "M062",
