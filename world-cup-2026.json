@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-06-16T23:00:33.972Z",
-  "sourceUpdated": "2026-06-16",
+  "updatedAt": "2026-06-17T01:45:09.596Z",
+  "sourceUpdated": "2026-06-17",
   "canonicalSource": "https://raw.githubusercontent.com/openfootball/worldcup.json/master/2026/worldcup.json",
   "notes": [
     "Fixtures and results are synced from openfootball/worldcup.json.",
@@ -1154,7 +1154,43 @@
       "matchup": "Iraq vs Norway",
       "venue": "Boston Stadium",
       "location": "Foxborough, Massachusetts",
-      "source": "openfootball/worldcup.json"
+      "source": "openfootball/worldcup.json",
+      "status": "Final",
+      "score": {
+        "home": 1,
+        "away": 4
+      },
+      "halftimeScore": {
+        "home": 1,
+        "away": 2
+      },
+      "goals": {
+        "home": [
+          {
+            "name": "Aymen Hussein",
+            "minute": "39"
+          }
+        ],
+        "away": [
+          {
+            "name": "Erling Haaland",
+            "minute": "29"
+          },
+          {
+            "name": "Erling Haaland",
+            "minute": "43"
+          },
+          {
+            "name": "Leo Østigard",
+            "minute": "76"
+          },
+          {
+            "name": "Aymen Hussein",
+            "minute": "90+6",
+            "owngoal": true
+          }
+        ]
+      }
     },
     {
       "id": "M051",
