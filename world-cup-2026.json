@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-06-17T23:53:33.842Z",
-  "sourceUpdated": "2026-06-17",
+  "updatedAt": "2026-06-18T05:09:58.721Z",
+  "sourceUpdated": "2026-06-18",
   "canonicalSource": "https://raw.githubusercontent.com/openfootball/worldcup.json/master/2026/worldcup.json",
   "notes": [
     "Fixtures and results are synced from openfootball/worldcup.json.",
@@ -1440,7 +1440,38 @@
       "matchup": "Uzbekistan vs Colombia",
       "venue": "Mexico City Stadium",
       "location": "Mexico City, Mexico",
-      "source": "openfootball/worldcup.json"
+      "source": "openfootball/worldcup.json",
+      "status": "Final",
+      "score": {
+        "home": 1,
+        "away": 3
+      },
+      "halftimeScore": {
+        "home": 0,
+        "away": 1
+      },
+      "goals": {
+        "home": [
+          {
+            "name": "Abbosbek Fayzullaev",
+            "minute": "60"
+          }
+        ],
+        "away": [
+          {
+            "name": "Daniel Muñoz",
+            "minute": "40"
+          },
+          {
+            "name": "Luis Díaz",
+            "minute": "65"
+          },
+          {
+            "name": "Jáminton Campaz",
+            "minute": "90+9"
+          }
+        ]
+      }
     },
     {
       "id": "M063",
@@ -1564,7 +1595,25 @@
       "matchup": "Ghana vs Panama",
       "venue": "Toronto Stadium",
       "location": "Toronto, Ontario",
-      "source": "openfootball/worldcup.json"
+      "source": "openfootball/worldcup.json",
+      "status": "Final",
+      "score": {
+        "home": 1,
+        "away": 0
+      },
+      "halftimeScore": {
+        "home": 0,
+        "away": 0
+      },
+      "goals": {
+        "home": [
+          {
+            "name": "Caleb Yirenkyi",
+            "minute": "90+5"
+          }
+        ],
+        "away": []
+      }
     },
     {
       "id": "M069",
