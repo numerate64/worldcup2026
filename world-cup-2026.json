@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-18T17:35:52.105Z",
+  "updatedAt": "2026-06-18T20:41:20.724Z",
   "sourceUpdated": "2026-06-18",
   "canonicalSource": "https://raw.githubusercontent.com/openfootball/worldcup.json/master/2026/worldcup.json",
   "notes": [
@@ -96,7 +96,31 @@
       "matchup": "Czech Republic vs South Africa",
       "venue": "Atlanta Stadium",
       "location": "Atlanta, Georgia",
-      "source": "openfootball/worldcup.json"
+      "source": "openfootball/worldcup.json",
+      "status": "Final",
+      "score": {
+        "home": 1,
+        "away": 1
+      },
+      "halftimeScore": {
+        "home": 1,
+        "away": 0
+      },
+      "goals": {
+        "home": [
+          {
+            "name": "Michal Sadílek",
+            "minute": "6"
+          }
+        ],
+        "away": [
+          {
+            "name": "Teboho Mokoena",
+            "minute": "83",
+            "penalty": true
+          }
+        ]
+      }
     },
     {
       "id": "M004",
