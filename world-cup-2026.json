@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-06-18T23:13:07.253Z",
-  "sourceUpdated": "2026-06-18",
+  "updatedAt": "2026-06-19T02:10:07.089Z",
+  "sourceUpdated": "2026-06-19",
   "canonicalSource": "https://raw.githubusercontent.com/openfootball/worldcup.json/master/2026/worldcup.json",
   "notes": [
     "Fixtures and results are synced from openfootball/worldcup.json.",
@@ -301,7 +301,46 @@
       "matchup": "Canada vs Qatar",
       "venue": "BC Place Vancouver",
       "location": "Vancouver, British Columbia",
-      "source": "openfootball/worldcup.json"
+      "source": "openfootball/worldcup.json",
+      "status": "Final",
+      "score": {
+        "home": 6,
+        "away": 0
+      },
+      "halftimeScore": {
+        "home": 3,
+        "away": 0
+      },
+      "goals": {
+        "home": [
+          {
+            "name": "Cyle Larin",
+            "minute": "16"
+          },
+          {
+            "name": "Jonathan David",
+            "minute": "29"
+          },
+          {
+            "name": "Jonathan David",
+            "minute": "45+3"
+          },
+          {
+            "name": "Nathan Saliba",
+            "minute": "64"
+          },
+          {
+            "name": "Mohamed Manai",
+            "minute": "75",
+            "owngoal": true
+          },
+          {
+            "name": "Jonathan David",
+            "minute": "90+2"
+          }
+        ],
+        "away": []
+      }
     },
     {
       "id": "M011",
