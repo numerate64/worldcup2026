@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-19T02:10:07.089Z",
+  "updatedAt": "2026-06-19T07:33:21.474Z",
   "sourceUpdated": "2026-06-19",
   "canonicalSource": "https://raw.githubusercontent.com/openfootball/worldcup.json/master/2026/worldcup.json",
   "notes": [
@@ -134,7 +134,25 @@
       "matchup": "Mexico vs South Korea",
       "venue": "Guadalajara Stadium",
       "location": "Guadalajara, Mexico",
-      "source": "openfootball/worldcup.json"
+      "source": "openfootball/worldcup.json",
+      "status": "Final",
+      "score": {
+        "home": 1,
+        "away": 0
+      },
+      "halftimeScore": {
+        "home": 0,
+        "away": 0
+      },
+      "goals": {
+        "home": [
+          {
+            "name": "Luis Romo",
+            "minute": "50"
+          }
+        ],
+        "away": []
+      }
     },
     {
       "id": "M005",
