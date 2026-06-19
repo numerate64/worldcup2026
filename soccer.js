@@ -1,4 +1,5 @@
 const FAVORITES_KEY = 'worldCup2026Favorites.v1';
+const SHOW_COMPLETED_KEY = 'worldCup2026ShowCompleted.v1';
 const SCORE_REFRESH_INTERVAL_MS = 2 * 60 * 60 * 1000;
 const KNOCKOUT_STAGES = ['Round of 32', 'Round of 16', 'Quarterfinals', 'Semifinals', 'Third Place', 'Final'];
 const TEAM_FLAGS = {
@@ -69,6 +70,7 @@ const els = {
   stageFilter: document.getElementById('stageFilter'),
   venueFilter: document.getElementById('venueFilter'),
   favoritesOnly: document.getElementById('favoritesOnly'),
+  showCompleted: document.getElementById('showCompleted'),
   scheduleControls: document.getElementById('scheduleControls'),
   resetFilters: document.getElementById('resetFilters'),
   refreshScores: document.getElementById('refreshScores'),
@@ -100,6 +102,14 @@ function loadFavorites() {
 
 function saveFavorites() {
   localStorage.setItem(FAVORITES_KEY, JSON.stringify([...favorites]));
+}
+
+function loadShowCompleted() {
+  return localStorage.getItem(SHOW_COMPLETED_KEY) === 'true';
+}
+
+function saveShowCompleted() {
+  localStorage.setItem(SHOW_COMPLETED_KEY, String(els.showCompleted.checked));
 }
 
 function html(value) {
@@ -319,6 +329,7 @@ function getFilteredMatches() {
     if (stage && match.stage !== stage) return false;
     if (venue && match.venue !== venue) return false;
     if (els.favoritesOnly.checked && !favorites.has(match.id)) return false;
+    if (!els.showCompleted.checked && hasBeenPlayed(match)) return false;
     if (!search) return true;
 
     return [
@@ -358,7 +369,9 @@ function render() {
     els.visibleCount.textContent = `${standings.length} teams with accumulated points shown`;
   } else {
     const label = currentView === 'scores' ? 'scores' : 'matches';
-    els.visibleCount.textContent = `${filtered.length} of ${matches.length} ${label} shown`;
+    const hiddenPlayed = els.showCompleted.checked ? 0 : matches.filter(hasBeenPlayed).length;
+    const hiddenNote = hiddenPlayed ? ` · ${hiddenPlayed} played hidden` : '';
+    els.visibleCount.textContent = `${filtered.length} of ${matches.length} ${label} shown${hiddenNote}`;
   }
   els.matchCount.textContent = `${matches.length} matches`;
   els.favoriteCount.textContent = `${favorites.size} favorite${favorites.size === 1 ? '' : 's'}`;
@@ -370,6 +383,14 @@ function render() {
 
 function hasScore(match) {
   return numericScore(match, 0) !== null && numericScore(match, 1) !== null;
+}
+
+function hasBeenPlayed(match) {
+  if (hasScore(match)) return true;
+  const status = normalize(match.status);
+  if (status.includes('final') || status.includes('complete') || status.includes('finished')) return true;
+  const kickoff = new Date(match.kickoffEt).getTime();
+  return Number.isFinite(kickoff) && Date.now() > kickoff + (2.5 * 60 * 60 * 1000);
 }
 
 function completedMatches() {
@@ -618,6 +639,8 @@ function resetFilters() {
   els.stageFilter.value = '';
   els.venueFilter.value = '';
   els.favoritesOnly.checked = false;
+  els.showCompleted.checked = false;
+  saveShowCompleted();
   render();
 }
 
@@ -669,6 +692,11 @@ async function loadSoccerData({ manual = false } = {}) {
 els.searchFilter.addEventListener('input', render);
 [els.stageFilter, els.venueFilter, els.favoritesOnly].forEach(control => {
   control.addEventListener('change', render);
+});
+els.showCompleted.checked = loadShowCompleted();
+els.showCompleted.addEventListener('change', () => {
+  saveShowCompleted();
+  render();
 });
 
 els.resetFilters.addEventListener('click', resetFilters);
