@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-19T20:08:10.408Z",
+  "updatedAt": "2026-06-19T21:38:53.036Z",
   "sourceUpdated": "2026-06-19",
   "canonicalSource": "https://raw.githubusercontent.com/openfootball/worldcup.json/master/2026/worldcup.json",
   "notes": [
@@ -611,7 +611,30 @@
       "matchup": "USA vs Australia",
       "venue": "Seattle Stadium",
       "location": "Seattle, Washington",
-      "source": "openfootball/worldcup.json"
+      "source": "openfootball/worldcup.json",
+      "status": "Final",
+      "score": {
+        "home": 2,
+        "away": 0
+      },
+      "halftimeScore": {
+        "home": 2,
+        "away": 0
+      },
+      "goals": {
+        "home": [
+          {
+            "name": "Cameron Burgess",
+            "minute": "11",
+            "owngoal": true
+          },
+          {
+            "name": "Alex Freeman",
+            "minute": "43"
+          }
+        ],
+        "away": []
+      }
     },
     {
       "id": "M022",
