@@ -55,6 +55,39 @@ h1 {
   text-decoration: underline;
 }
 
+.page-topbar {
+  align-items: center;
+  display: flex;
+  gap: 16px;
+  justify-content: space-between;
+  margin-bottom: 18px;
+}
+
+.theme-toggle {
+  align-items: center;
+  background: #172033;
+  border: 1px solid #475569;
+  border-radius: 999px;
+  color: #e2e8f0;
+  cursor: pointer;
+  display: inline-flex;
+  font: inherit;
+  font-weight: 700;
+  gap: 8px;
+  min-height: 40px;
+  padding: 8px 13px;
+}
+
+.theme-toggle:hover {
+  background: #1e293b;
+  border-color: #60a5fa;
+}
+
+.theme-toggle:focus-visible {
+  outline: 3px solid #38bdf8;
+  outline-offset: 3px;
+}
+
 code {
   color: #bfdbfe;
 }
@@ -1391,4 +1424,167 @@ code {
     align-items: start;
     flex-direction: column;
   }
+}
+
+html[data-theme="dark"] {
+  color-scheme: dark;
+}
+
+html[data-theme="light"] {
+  color-scheme: light;
+}
+
+html[data-theme="light"] body {
+  background: #f1f5f9;
+  color: #0f172a;
+}
+
+html[data-theme="light"] #subtitle,
+html[data-theme="light"] .soccer-badge span,
+html[data-theme="light"] .soccer-status,
+html[data-theme="light"] .pulse-card span,
+html[data-theme="light"] .pulse-card em,
+html[data-theme="light"] .match-group,
+html[data-theme="light"] .match-sub,
+html[data-theme="light"] .soccer-sources li span,
+html[data-theme="light"] .bracket-note span,
+html[data-theme="light"] .bracket-meta,
+html[data-theme="light"] .bracket-game p,
+html[data-theme="light"] .section-heading p {
+  color: #475569;
+}
+
+html[data-theme="light"] .home-link,
+html[data-theme="light"] .api-pill a,
+html[data-theme="light"] .soccer-sources a {
+  color: #1d4ed8;
+}
+
+html[data-theme="light"] .soccer-header,
+html[data-theme="light"] .soccer-view-tabs,
+html[data-theme="light"] .soccer-sources {
+  border-color: #cbd5e1;
+}
+
+html[data-theme="light"] .summary-strip span,
+html[data-theme="light"] .soccer-badge,
+html[data-theme="light"] .soccer-controls,
+html[data-theme="light"] .pulse-card,
+html[data-theme="light"] .match-table-wrap,
+html[data-theme="light"] .soccer-sources li,
+html[data-theme="light"] .bracket-note,
+html[data-theme="light"] .bracket-group,
+html[data-theme="light"] .bracket-game,
+html[data-theme="light"] .bracket-team {
+  background: #ffffff;
+  border-color: #cbd5e1;
+  color: #0f172a;
+}
+
+html[data-theme="light"] .summary-strip span,
+html[data-theme="light"] .soccer-badge,
+html[data-theme="light"] .soccer-status strong,
+html[data-theme="light"] .pulse-card strong,
+html[data-theme="light"] .match-title,
+html[data-theme="light"] .bracket-team {
+  color: #0f172a;
+}
+
+html[data-theme="light"] .secondary-button,
+html[data-theme="light"] .theme-toggle,
+html[data-theme="light"] .favorite-button {
+  background: #ffffff;
+  border-color: #94a3b8;
+  color: #1e293b;
+}
+
+html[data-theme="light"] .secondary-button:hover,
+html[data-theme="light"] .theme-toggle:hover,
+html[data-theme="light"] .favorite-button:hover {
+  background: #e2e8f0;
+  border-color: #2563eb;
+}
+
+html[data-theme="light"] .soccer-controls label {
+  color: #334155;
+}
+
+html[data-theme="light"] .soccer-controls input,
+html[data-theme="light"] .soccer-controls select {
+  background: #f8fafc;
+  border-color: #94a3b8;
+  color: #0f172a;
+}
+
+html[data-theme="light"] .view-tab {
+  color: #334155;
+}
+
+html[data-theme="light"] .view-tab:hover {
+  background: #e2e8f0;
+  color: #0f172a;
+}
+
+html[data-theme="light"] .view-tab.is-active {
+  background: #ffffff;
+  border-color: #94a3b8;
+  color: #1d4ed8;
+}
+
+html[data-theme="light"] .match-table th {
+  background: #e2e8f0;
+  color: #1e3a8a;
+}
+
+html[data-theme="light"] .match-table th,
+html[data-theme="light"] .match-table td {
+  border-color: #cbd5e1;
+}
+
+html[data-theme="light"] .match-table tbody tr:hover {
+  background: #f8fafc;
+}
+
+html[data-theme="light"] .score-status {
+  background: #e2e8f0;
+  border-color: #94a3b8;
+  color: #334155;
+}
+
+html[data-theme="light"] .score-status.is-final {
+  background: #dcfce7;
+  border-color: #16a34a;
+  color: #166534;
+}
+
+html[data-theme="light"] .score-status.is-live {
+  background: #fee2e2;
+  border-color: #dc2626;
+  color: #991b1b;
+}
+
+html[data-theme="light"] .score-status.is-awaiting {
+  background: #fef3c7;
+  border-color: #d97706;
+  color: #92400e;
+}
+
+html[data-theme="light"] .bracket-column h2 {
+  background: #ffffff;
+  color: #1e3a8a;
+}
+
+html[data-theme="light"] .bracket-group-row {
+  background: #f8fafc;
+  border-color: #cbd5e1;
+  color: #1e293b;
+}
+
+html[data-theme="light"] .bracket-group-row.is-advance {
+  background: #f0fdf4;
+  border-color: #16a34a;
+}
+
+html[data-theme="light"] .empty-state {
+  color: #64748b;
 }

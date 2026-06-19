@@ -3,13 +3,27 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark light">
   <title>FIFA World Cup 2026</title>
+  <script>
+    try {
+      document.documentElement.dataset.theme = localStorage.getItem('worldCup2026Theme.v1') === 'light' ? 'light' : 'dark';
+    } catch {
+      document.documentElement.dataset.theme = 'dark';
+    }
+  </script>
   <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
   <main class="wrap soccer-wrap">
     <header class="page-header soccer-header">
-      <p><a class="home-link" href="https://github.com/numerate64/worldcup2026">GitHub</a></p>
+      <div class="page-topbar">
+        <a class="home-link" href="https://github.com/numerate64/worldcup2026">GitHub</a>
+        <button class="theme-toggle" id="themeToggle" type="button" aria-pressed="false">
+          <span id="themeIcon" aria-hidden="true">☀️</span>
+          <span id="themeLabel">Light mode</span>
+        </button>
+      </div>
       <div class="soccer-title-row">
         <div>
           <h1>FIFA World Cup 2026</h1>

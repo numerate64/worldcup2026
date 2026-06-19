@@ -1,5 +1,6 @@
 const FAVORITES_KEY = 'worldCup2026Favorites.v1';
 const SHOW_COMPLETED_KEY = 'worldCup2026ShowCompleted.v1';
+const THEME_KEY = 'worldCup2026Theme.v1';
 const SCORE_REFRESH_INTERVAL_MS = 2 * 60 * 60 * 1000;
 const KNOCKOUT_STAGES = ['Round of 32', 'Round of 16', 'Quarterfinals', 'Semifinals', 'Third Place', 'Final'];
 const TEAM_FLAGS = {
@@ -71,6 +72,9 @@ const els = {
   venueFilter: document.getElementById('venueFilter'),
   favoritesOnly: document.getElementById('favoritesOnly'),
   showCompleted: document.getElementById('showCompleted'),
+  themeToggle: document.getElementById('themeToggle'),
+  themeIcon: document.getElementById('themeIcon'),
+  themeLabel: document.getElementById('themeLabel'),
   scheduleControls: document.getElementById('scheduleControls'),
   resetFilters: document.getElementById('resetFilters'),
   refreshScores: document.getElementById('refreshScores'),
@@ -110,6 +114,25 @@ function loadShowCompleted() {
 
 function saveShowCompleted() {
   localStorage.setItem(SHOW_COMPLETED_KEY, String(els.showCompleted.checked));
+}
+
+function loadTheme() {
+  try {
+    return localStorage.getItem(THEME_KEY) === 'light' ? 'light' : 'dark';
+  } catch {
+    return 'dark';
+  }
+}
+
+function applyTheme(theme, { save = true } = {}) {
+  const nextTheme = theme === 'light' ? 'light' : 'dark';
+  const isLight = nextTheme === 'light';
+  document.documentElement.dataset.theme = nextTheme;
+  els.themeToggle.setAttribute('aria-pressed', String(isLight));
+  els.themeToggle.setAttribute('aria-label', `Switch to ${isLight ? 'dark' : 'light'} mode`);
+  els.themeIcon.textContent = isLight ? '🌙' : '☀️';
+  els.themeLabel.textContent = isLight ? 'Dark mode' : 'Light mode';
+  if (save) localStorage.setItem(THEME_KEY, nextTheme);
 }
 
 function html(value) {
@@ -697,6 +720,10 @@ els.showCompleted.checked = loadShowCompleted();
 els.showCompleted.addEventListener('change', () => {
   saveShowCompleted();
   render();
+});
+applyTheme(loadTheme(), { save: false });
+els.themeToggle.addEventListener('click', () => {
+  applyTheme(document.documentElement.dataset.theme === 'light' ? 'dark' : 'light');
 });
 
 els.resetFilters.addEventListener('click', resetFilters);
