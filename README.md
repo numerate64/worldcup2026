@@ -12,7 +12,7 @@ https://numerate64.github.io/worldcup2026/
 
 This repository publishes a single-page World Cup tracker. The page loads `world-cup-2026.json` in the browser and renders Schedule, Scores, Points, and Bracket views.
 
-The browser also provides favorites in `localStorage`, no-cache data refresh, CSV/XLS/ICS exports, and a data-check card for stale missing scores.
+The browser also provides favorites in `localStorage`, a five-minute no-cache data check, CSV/XLS/ICS exports, and a data-check card for stale missing scores.
 
 ## Current Data State
 
@@ -26,6 +26,8 @@ As of the checked-in `world-cup-2026.json`:
 ## Data Pipeline
 
 The sync script is `scripts/sync-worldcup-openfootball.js`. It fetches openfootball data, preserves local venue/location metadata where possible, normalizes team names, copies final scores when available, and writes `world-cup-2026.json`.
+
+GitHub Actions runs the sync every five minutes. Data changes are committed to `main`, which triggers the Pages deployment workflow.
 
 ```sh
 npm run sync:worldcup

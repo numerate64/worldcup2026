@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-06-19T23:32:29.685Z",
-  "sourceUpdated": "2026-06-19",
+  "updatedAt": "2026-06-20T01:42:40.512Z",
+  "sourceUpdated": "2026-06-20",
   "canonicalSource": "https://raw.githubusercontent.com/openfootball/worldcup.json/master/2026/worldcup.json",
   "notes": [
     "Fixtures and results are synced from openfootball/worldcup.json.",
@@ -469,7 +469,25 @@
       "matchup": "Scotland vs Morocco",
       "venue": "Boston Stadium",
       "location": "Foxborough, Massachusetts",
-      "source": "openfootball/worldcup.json"
+      "source": "openfootball/worldcup.json",
+      "status": "Final",
+      "score": {
+        "home": 0,
+        "away": 1
+      },
+      "halftimeScore": {
+        "home": 0,
+        "away": 1
+      },
+      "goals": {
+        "home": [],
+        "away": [
+          {
+            "name": "Ismael Saibari",
+            "minute": "2"
+          }
+        ]
+      }
     },
     {
       "id": "M016",

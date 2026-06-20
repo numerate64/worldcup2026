@@ -2,7 +2,7 @@ name: Watch Openfootball World Cup Data
 
 on:
   schedule:
-    - cron: "23 * * * *"
+    - cron: "*/5 * * * *"
   workflow_dispatch:
 
 permissions:

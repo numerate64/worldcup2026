@@ -1,7 +1,7 @@
 const FAVORITES_KEY = 'worldCup2026Favorites.v1';
 const SHOW_COMPLETED_KEY = 'worldCup2026ShowCompleted.v1';
 const THEME_KEY = 'worldCup2026Theme.v1';
-const SCORE_REFRESH_INTERVAL_MS = 2 * 60 * 60 * 1000;
+const SCORE_REFRESH_INTERVAL_MS = 5 * 60 * 1000;
 const KNOCKOUT_STAGES = ['Round of 32', 'Round of 16', 'Quarterfinals', 'Semifinals', 'Third Place', 'Final'];
 const TEAM_FLAGS = {
   Algeria: '🇩🇿',
@@ -62,7 +62,8 @@ const TEAM_NAME_OVERRIDES = {
 let matches = [];
 let sources = [];
 let favorites = loadFavorites();
-let lastRefreshedAt = null;
+let dataPublishedAt = null;
+let lastCheckedAt = null;
 let currentView = 'schedule';
 let pointsSort = { key: 'group', direction: 'asc' };
 
@@ -340,10 +341,27 @@ function groupStandings() {
 }
 
 function refreshMessage(prefix = '') {
-  const updated = lastRefreshedAt
-    ? new Intl.DateTimeFormat('en-US', { hour: 'numeric', minute: '2-digit' }).format(lastRefreshedAt)
+  const dateTimeFormat = new Intl.DateTimeFormat('en-US', {
+    timeZone: 'America/New_York',
+    month: 'short',
+    day: 'numeric',
+    hour: 'numeric',
+    minute: '2-digit',
+    timeZoneName: 'short'
+  });
+  const timeFormat = new Intl.DateTimeFormat('en-US', {
+    timeZone: 'America/New_York',
+    hour: 'numeric',
+    minute: '2-digit',
+    timeZoneName: 'short'
+  });
+  const published = dataPublishedAt && !Number.isNaN(dataPublishedAt.getTime())
+    ? dateTimeFormat.format(dataPublishedAt)
+    : 'unavailable';
+  const checked = lastCheckedAt
+    ? timeFormat.format(lastCheckedAt)
     : 'not yet';
-  return `${prefix}Last refreshed ${updated}. Auto-refreshes every 2 hours.`;
+  return `${prefix}Data published ${published}. Page checked ${checked}. Checks every 5 minutes.`;
 }
 
 function filterDate(match) {
@@ -756,7 +774,7 @@ function setView(view) {
 async function loadSoccerData({ manual = false } = {}) {
   if (manual) {
     els.refreshScores.disabled = true;
-    els.dataNote.textContent = 'Refreshing scores and bracket data...';
+    els.dataNote.textContent = 'Checking the latest published data...';
   }
 
   try {
@@ -765,7 +783,8 @@ async function loadSoccerData({ manual = false } = {}) {
     const data = await response.json();
     matches = Array.isArray(data.matches) ? data.matches : [];
     sources = Array.isArray(data.sources) ? data.sources : [];
-    lastRefreshedAt = new Date();
+    dataPublishedAt = data.updatedAt ? new Date(data.updatedAt) : null;
+    lastCheckedAt = new Date();
     if (Array.isArray(data.notes) && data.notes.length) {
       els.dataNote.textContent = `${data.notes.join(' ')} ${refreshMessage()}`;
     } else {
@@ -776,7 +795,7 @@ async function loadSoccerData({ manual = false } = {}) {
     render();
   } catch (error) {
     els.visibleCount.textContent = `Unable to load matches: ${error.message}`;
-    els.dataNote.textContent = refreshMessage('Refresh failed. ');
+    els.dataNote.textContent = refreshMessage('Check failed. ');
   } finally {
     els.refreshScores.disabled = false;
   }
