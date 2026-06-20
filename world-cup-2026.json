@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-20T19:05:01.937Z",
+  "updatedAt": "2026-06-20T19:10:02.842Z",
   "sourceUpdated": "2026-06-20",
   "canonicalSource": "https://raw.githubusercontent.com/openfootball/worldcup.json/master/2026/worldcup.json",
   "notes": [
@@ -1001,7 +1001,46 @@
       "matchup": "Netherlands vs Sweden",
       "venue": "Houston Stadium",
       "location": "Houston, Texas",
-      "source": "openfootball/worldcup.json"
+      "source": "openfootball/worldcup.json",
+      "status": "Final",
+      "score": {
+        "home": 5,
+        "away": 1
+      },
+      "halftimeScore": {
+        "home": 2,
+        "away": 0
+      },
+      "goals": {
+        "home": [
+          {
+            "name": "Brian Brobbey",
+            "minute": "5"
+          },
+          {
+            "name": "Brian Brobbey",
+            "minute": "17"
+          },
+          {
+            "name": "Cody Gakpo",
+            "minute": "47"
+          },
+          {
+            "name": "Cody Gakpo",
+            "minute": "54"
+          },
+          {
+            "name": "Crysencio Summerville",
+            "minute": "89"
+          }
+        ],
+        "away": [
+          {
+            "name": "Anthony Elanga",
+            "minute": "59"
+          }
+        ]
+      }
     },
     {
       "id": "M034",
