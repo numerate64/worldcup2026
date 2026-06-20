@@ -64,6 +64,7 @@ let sources = [];
 let favorites = loadFavorites();
 let lastRefreshedAt = null;
 let currentView = 'schedule';
+let pointsSort = { key: 'group', direction: 'asc' };
 
 const els = {
   matchRows: document.getElementById('matchRows'),
@@ -90,6 +91,7 @@ const els = {
   sourceList: document.getElementById('sourceList'),
   scoreRows: document.getElementById('scoreRows'),
   pointsRows: document.getElementById('pointsRows'),
+  pointsSortButtons: [...document.querySelectorAll('.points-sort')],
   bracketSnapshot: document.getElementById('bracketSnapshot'),
   bracketBoard: document.getElementById('bracketBoard'),
   viewTabs: [...document.querySelectorAll('.view-tab')],
@@ -505,8 +507,50 @@ function renderScores(filtered) {
   }).join('') || '<tr><td colspan="6" class="empty-state">No scores match the current filters.</td></tr>';
 }
 
+function sortedStandings(standings) {
+  const { key, direction } = pointsSort;
+  const multiplier = direction === 'asc' ? 1 : -1;
+
+  return [...standings].sort((a, b) => {
+    const first = a[key];
+    const second = b[key];
+    const comparison = typeof first === 'number'
+      ? first - second
+      : String(first).localeCompare(String(second), undefined, { numeric: true });
+    if (comparison) return comparison * multiplier;
+
+    if (key === 'group') {
+      return b.points - a.points
+        || b.goalDifference - a.goalDifference
+        || b.goalsFor - a.goalsFor
+        || a.team.localeCompare(b.team);
+    }
+
+    if (key === 'points') {
+      return b.goalDifference - a.goalDifference
+        || b.goalsFor - a.goalsFor
+        || a.team.localeCompare(b.team);
+    }
+
+    return a.group.localeCompare(b.group, undefined, { numeric: true })
+      || a.team.localeCompare(b.team);
+  });
+}
+
+function updatePointsSortHeaders() {
+  els.pointsSortButtons.forEach(button => {
+    const active = button.dataset.sort === pointsSort.key;
+    const header = button.closest('th');
+    header.setAttribute('aria-sort', active
+      ? (pointsSort.direction === 'asc' ? 'ascending' : 'descending')
+      : 'none');
+    button.classList.toggle('is-active', active);
+  });
+}
+
 function renderPoints(standings) {
-  els.pointsRows.innerHTML = standings.map(row => `<tr>
+  updatePointsSortHeaders();
+  els.pointsRows.innerHTML = sortedStandings(standings).map(row => `<tr>
     <td><span class="match-group">${html(row.group)}</span></td>
     <td><span class="match-title">${teamHtml(row.team)}</span></td>
     <td>${row.played}</td>
@@ -518,6 +562,18 @@ function renderPoints(standings) {
     <td>${row.goalDifference > 0 ? '+' : ''}${row.goalDifference}</td>
     <td><strong>${row.points}</strong></td>
   </tr>`).join('') || '<tr><td colspan="10" class="empty-state">No completed group-stage matches yet.</td></tr>';
+}
+
+function setPointsSort(key) {
+  if (pointsSort.key === key) {
+    pointsSort.direction = pointsSort.direction === 'asc' ? 'desc' : 'asc';
+  } else {
+    pointsSort = {
+      key,
+      direction: key === 'group' || key === 'team' ? 'asc' : 'desc'
+    };
+  }
+  render();
 }
 
 function renderBracket(standings) {
@@ -746,6 +802,9 @@ els.exportCsv.addEventListener('click', exportCsv);
 els.exportXls.addEventListener('click', exportXls);
 els.exportIcs.addEventListener('click', exportIcs);
 els.viewTabs.forEach(tab => tab.addEventListener('click', () => setView(tab.dataset.view)));
+els.pointsSortButtons.forEach(button => {
+  button.addEventListener('click', () => setPointsSort(button.dataset.sort));
+});
 
 loadSoccerData();
 setInterval(loadSoccerData, SCORE_REFRESH_INTERVAL_MS);

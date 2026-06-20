@@ -583,6 +583,40 @@ code {
   text-transform: uppercase;
 }
 
+.points-sort {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  font: inherit;
+  font-weight: inherit;
+  padding: 2px 0;
+  text-transform: inherit;
+}
+
+.points-sort::after {
+  content: "↕";
+  color: #64748b;
+  font-size: 11px;
+}
+
+.points-sort.is-active::after {
+  content: "↑";
+  color: #60a5fa;
+}
+
+th[aria-sort="descending"] .points-sort.is-active::after {
+  content: "↓";
+}
+
+.points-sort:hover,
+.points-sort:focus-visible {
+  color: #ffffff;
+}
+
 .match-table tbody tr:hover {
   background: #101827;
 }
@@ -1539,6 +1573,11 @@ html[data-theme="light"] .match-table th {
 html[data-theme="light"] .match-table th,
 html[data-theme="light"] .match-table td {
   border-color: #cbd5e1;
+}
+
+html[data-theme="light"] .points-sort:hover,
+html[data-theme="light"] .points-sort:focus-visible {
+  color: #1d4ed8;
 }
 
 html[data-theme="light"] .match-table tbody tr:hover {
