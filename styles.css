@@ -412,7 +412,7 @@ code {
 
 .soccer-controls {
   display: grid;
-  grid-template-columns: minmax(230px, 1.4fr) repeat(3, minmax(150px, 1fr)) auto auto;
+  grid-template-columns: minmax(200px, 1.4fr) repeat(3, minmax(145px, 1fr)) auto auto auto;
   gap: 12px;
   align-items: end;
   margin: 22px 0 14px;

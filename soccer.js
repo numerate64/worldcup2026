@@ -67,7 +67,8 @@ let currentView = 'schedule';
 
 const els = {
   matchRows: document.getElementById('matchRows'),
-  searchFilter: document.getElementById('searchFilter'),
+  teamFilter: document.getElementById('teamFilter'),
+  dateFilter: document.getElementById('dateFilter'),
   stageFilter: document.getElementById('stageFilter'),
   venueFilter: document.getElementById('venueFilter'),
   favoritesOnly: document.getElementById('favoritesOnly'),
@@ -343,26 +344,38 @@ function refreshMessage(prefix = '') {
   return `${prefix}Last refreshed ${updated}. Auto-refreshes every 2 hours.`;
 }
 
+function filterDate(match) {
+  const date = new Date(match.kickoffEt);
+  if (Number.isNaN(date.getTime())) return '';
+
+  const parts = new Intl.DateTimeFormat('en-US', {
+    timeZone: 'America/New_York',
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit'
+  }).formatToParts(date);
+  const values = Object.fromEntries(parts.map(part => [part.type, part.value]));
+  return `${values.year}-${values.month}-${values.day}`;
+}
+
 function getFilteredMatches() {
-  const search = normalize(els.searchFilter.value).trim();
+  const team = normalize(els.teamFilter.value).trim();
+  const date = els.dateFilter.value;
   const stage = els.stageFilter.value;
   const venue = els.venueFilter.value;
 
   return matches.filter(match => {
     if (stage && match.stage !== stage) return false;
     if (venue && match.venue !== venue) return false;
+    if (date && filterDate(match) !== date) return false;
     if (els.favoritesOnly.checked && !favorites.has(match.id)) return false;
     if (!els.showCompleted.checked && hasBeenPlayed(match)) return false;
-    if (!search) return true;
+    if (!team) return true;
 
     return [
       match.matchup,
-      displayMatchup(match.matchup),
-      match.group,
-      match.stage,
-      match.venue,
-      match.location
-    ].some(value => normalize(value).includes(search));
+      displayMatchup(match.matchup)
+    ].some(value => normalize(value).includes(team));
   }).sort((a, b) => new Date(a.kickoffEt) - new Date(b.kickoffEt));
 }
 
@@ -658,7 +671,8 @@ function exportIcs() {
 }
 
 function resetFilters() {
-  els.searchFilter.value = '';
+  els.teamFilter.value = '';
+  els.dateFilter.value = '';
   els.stageFilter.value = '';
   els.venueFilter.value = '';
   els.favoritesOnly.checked = false;
@@ -712,8 +726,8 @@ async function loadSoccerData({ manual = false } = {}) {
   }
 }
 
-els.searchFilter.addEventListener('input', render);
-[els.stageFilter, els.venueFilter, els.favoritesOnly].forEach(control => {
+els.teamFilter.addEventListener('input', render);
+[els.dateFilter, els.stageFilter, els.venueFilter, els.favoritesOnly].forEach(control => {
   control.addEventListener('change', render);
 });
 els.showCompleted.checked = loadShowCompleted();
