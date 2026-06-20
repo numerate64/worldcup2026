@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-20T02:40:02.512Z",
+  "updatedAt": "2026-06-20T02:45:02.413Z",
   "sourceUpdated": "2026-06-20",
   "canonicalSource": "https://raw.githubusercontent.com/openfootball/worldcup.json/master/2026/worldcup.json",
   "notes": [
@@ -501,7 +501,33 @@
       "matchup": "Brazil vs Haiti",
       "venue": "Philadelphia Stadium",
       "location": "Philadelphia, Pennsylvania",
-      "source": "openfootball/worldcup.json"
+      "source": "openfootball/worldcup.json",
+      "status": "Final",
+      "score": {
+        "home": 3,
+        "away": 0
+      },
+      "halftimeScore": {
+        "home": 3,
+        "away": 0
+      },
+      "goals": {
+        "home": [
+          {
+            "name": "Matheus Cunha",
+            "minute": "23"
+          },
+          {
+            "name": "Matheus Cunha",
+            "minute": "36"
+          },
+          {
+            "name": "Vinícius Júnior",
+            "minute": "45+3"
+          }
+        ],
+        "away": []
+      }
     },
     {
       "id": "M017",
