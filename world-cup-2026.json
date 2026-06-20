@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-20T22:05:02.123Z",
+  "updatedAt": "2026-06-20T22:10:02.060Z",
   "sourceUpdated": "2026-06-20",
   "canonicalSource": "https://raw.githubusercontent.com/openfootball/worldcup.json/master/2026/worldcup.json",
   "notes": [
@@ -847,7 +847,34 @@
       "matchup": "Germany vs Ivory Coast",
       "venue": "Toronto Stadium",
       "location": "Toronto, Ontario",
-      "source": "openfootball/worldcup.json"
+      "source": "openfootball/worldcup.json",
+      "status": "Final",
+      "score": {
+        "home": 2,
+        "away": 1
+      },
+      "halftimeScore": {
+        "home": 0,
+        "away": 1
+      },
+      "goals": {
+        "home": [
+          {
+            "name": "Deniz Undav",
+            "minute": "68"
+          },
+          {
+            "name": "Deniz Undav",
+            "minute": "90+4"
+          }
+        ],
+        "away": [
+          {
+            "name": "Franck Kessié",
+            "minute": "30"
+          }
+        ]
+      }
     },
     {
       "id": "M028",
