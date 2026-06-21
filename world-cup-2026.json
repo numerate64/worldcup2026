@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-21T21:05:02.343Z",
+  "updatedAt": "2026-06-21T21:10:02.320Z",
   "sourceUpdated": "2026-06-21",
   "canonicalSource": "https://raw.githubusercontent.com/openfootball/worldcup.json/master/2026/worldcup.json",
   "notes": [
@@ -1245,7 +1245,16 @@
       "matchup": "Belgium vs Iran",
       "venue": "Los Angeles Stadium",
       "location": "Inglewood, California",
-      "source": "openfootball/worldcup.json"
+      "source": "openfootball/worldcup.json",
+      "status": "Final",
+      "score": {
+        "home": 0,
+        "away": 0
+      },
+      "halftimeScore": {
+        "home": 0,
+        "away": 0
+      }
     },
     {
       "id": "M040",
