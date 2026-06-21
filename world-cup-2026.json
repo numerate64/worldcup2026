@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-21T02:00:02.594Z",
+  "updatedAt": "2026-06-21T02:05:02.619Z",
   "sourceUpdated": "2026-06-21",
   "canonicalSource": "https://raw.githubusercontent.com/openfootball/worldcup.json/master/2026/worldcup.json",
   "notes": [
@@ -888,7 +888,16 @@
       "matchup": "Ecuador vs Curaçao",
       "venue": "Kansas City Stadium",
       "location": "Kansas City, Missouri",
-      "source": "openfootball/worldcup.json"
+      "source": "openfootball/worldcup.json",
+      "status": "Final",
+      "score": {
+        "home": 0,
+        "away": 0
+      },
+      "halftimeScore": {
+        "home": 0,
+        "away": 0
+      }
     },
     {
       "id": "M029",
