@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-21T18:05:02.101Z",
+  "updatedAt": "2026-06-21T18:10:01.965Z",
   "sourceUpdated": "2026-06-21",
   "canonicalSource": "https://raw.githubusercontent.com/openfootball/worldcup.json/master/2026/worldcup.json",
   "notes": [
@@ -1361,7 +1361,38 @@
       "matchup": "Spain vs Saudi Arabia",
       "venue": "Atlanta Stadium",
       "location": "Atlanta, Georgia",
-      "source": "openfootball/worldcup.json"
+      "source": "openfootball/worldcup.json",
+      "status": "Final",
+      "score": {
+        "home": 4,
+        "away": 0
+      },
+      "halftimeScore": {
+        "home": 3,
+        "away": 0
+      },
+      "goals": {
+        "home": [
+          {
+            "name": "Lamine Yamal",
+            "minute": "10"
+          },
+          {
+            "name": "Mikel Oyarzabal",
+            "minute": "21"
+          },
+          {
+            "name": "Mikel Oyarzabal",
+            "minute": "24"
+          },
+          {
+            "name": "Hassan Al-Tambakti",
+            "minute": "49",
+            "owngoal": true
+          }
+        ],
+        "away": []
+      }
     },
     {
       "id": "M046",
