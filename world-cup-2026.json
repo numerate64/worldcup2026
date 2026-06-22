@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-22T11:40:02.692Z",
+  "updatedAt": "2026-06-22T11:45:02.690Z",
   "sourceUpdated": "2026-06-22",
   "canonicalSource": "https://raw.githubusercontent.com/openfootball/worldcup.json/master/2026/worldcup.json",
   "notes": [
@@ -2104,9 +2104,9 @@
       "sourceTime": "16:30 UTC-4",
       "stage": "Round of 32",
       "group": "",
-      "matchup": "1E vs 3A/B/C/D/F",
-      "venue": "Houston Stadium",
-      "location": "Houston, Texas",
+      "matchup": "Germany vs 3A/B/C/D/F",
+      "venue": "Boston (Foxborough)",
+      "location": "Boston (Foxborough)",
       "source": "openfootball/worldcup.json"
     },
     {
@@ -2174,9 +2174,9 @@
       "sourceTime": "19:00 UTC-6",
       "stage": "Round of 32",
       "group": "",
-      "matchup": "1A vs 3C/E/F/H/I",
-      "venue": "Mexico City Stadium",
-      "location": "Mexico City, Mexico",
+      "matchup": "Mexico vs 3C/E/F/H/I",
+      "venue": "Mexico City",
+      "location": "Mexico City",
       "source": "openfootball/worldcup.json"
     },
     {
@@ -2202,9 +2202,9 @@
       "sourceTime": "17:00 UTC-7",
       "stage": "Round of 32",
       "group": "",
-      "matchup": "1D vs 3B/E/F/I/J",
-      "venue": "Seattle Stadium",
-      "location": "Seattle, Washington",
+      "matchup": "USA vs 3B/E/F/I/J",
+      "venue": "San Francisco Bay Area (Santa Clara)",
+      "location": "San Francisco Bay Area (Santa Clara)",
       "source": "openfootball/worldcup.json"
     },
     {
