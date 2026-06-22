@@ -3,6 +3,14 @@ const SHOW_COMPLETED_KEY = 'worldCup2026ShowCompleted.v1';
 const THEME_KEY = 'worldCup2026Theme.v1';
 const SCORE_REFRESH_INTERVAL_MS = 5 * 60 * 1000;
 const KNOCKOUT_STAGES = ['Round of 32', 'Round of 16', 'Quarterfinals', 'Semifinals', 'Third Place', 'Final'];
+const BRACKET_STAGES = ['Round of 32', 'Round of 16', 'Quarterfinals', 'Semifinals', 'Final'];
+const BRACKET_STAGE_LABELS = {
+  'Round of 32': 'Round of 32',
+  'Round of 16': 'Round of 16',
+  Quarterfinals: 'Quarter-finals',
+  Semifinals: 'Semi-finals',
+  Final: 'Final'
+};
 const TEAM_FLAGS = {
   Algeria: '🇩🇿',
   Argentina: '🇦🇷',
@@ -93,7 +101,6 @@ const els = {
   scoreRows: document.getElementById('scoreRows'),
   pointsRows: document.getElementById('pointsRows'),
   pointsSortButtons: [...document.querySelectorAll('.points-sort')],
-  bracketSnapshot: document.getElementById('bracketSnapshot'),
   bracketBoard: document.getElementById('bracketBoard'),
   viewTabs: [...document.querySelectorAll('.view-tab')],
   viewPanels: [...document.querySelectorAll('[data-view-panel]')]
@@ -434,7 +441,7 @@ function render() {
   renderPulse(standings);
   renderScores(filtered);
   renderPoints(standings);
-  renderBracket(standings);
+  renderBracket();
 }
 
 function hasScore(match) {
@@ -594,79 +601,107 @@ function setPointsSort(key) {
   render();
 }
 
-function renderBracket(standings) {
+function renderBracket() {
   const knockoutMatches = matches.filter(match => KNOCKOUT_STAGES.includes(match.stage));
-  renderBracketSnapshot(standings);
-  els.bracketBoard.innerHTML = KNOCKOUT_STAGES.map(stage => {
-    const stageMatches = knockoutMatches.filter(match => match.stage === stage);
-    if (!stageMatches.length) return '';
-    return `<section class="bracket-column" aria-label="${html(stage)}">
-      <h2>${html(stage)}</h2>
-      <div class="bracket-games">
-        ${stageMatches.map(renderBracketGame).join('')}
+  const matchMap = new Map(knockoutMatches.map(match => [
+    String(Number(match.id.replace(/\D/g, ''))),
+    match
+  ]));
+  const orderedRounds = bracketRoundOrder(matchMap);
+  const thirdPlace = knockoutMatches.find(match => match.stage === 'Third Place');
+
+  els.bracketBoard.innerHTML = `
+    <div class="bracket-tree">
+      ${BRACKET_STAGES.map((stage, stageIndex) => {
+        const stageMatches = orderedRounds.get(stage) || [];
+        return `<section class="bracket-column bracket-column-${stageIndex + 1}" aria-label="${html(stage)}">
+          <h3>
+            <span>${html(BRACKET_STAGE_LABELS[stage] || stage)}</span>
+            <small>${stageMatches.length} match${stageMatches.length === 1 ? '' : 'es'}</small>
+          </h3>
+          <div class="bracket-games">
+            ${stageMatches.map((match, index) => renderBracketGame(
+              match,
+              bracketSlot(index, stageMatches.length),
+              stageIndex,
+              stage === 'Final'
+            )).join('')}
+          </div>
+        </section>`;
+      }).join('')}
+    </div>
+    ${thirdPlace ? `<section class="bracket-third-place" aria-label="Third place match">
+      <div>
+        <span class="bracket-eyebrow">Bronze medal match</span>
+        <h3>Third Place</h3>
       </div>
-    </section>`;
-  }).join('');
+      ${renderBracketGame(thirdPlace, 0, 0, true, true)}
+    </section>` : ''}
+  `;
 }
 
-function renderBracketSnapshot(standings) {
-  const completedGroupMatches = matches.filter(match => (
-    match.stage === 'Group Stage'
-    && numericScore(match, 0) !== null
-    && numericScore(match, 1) !== null
-  )).length;
+function bracketRoundOrder(matchMap) {
+  const ordered = new Map(BRACKET_STAGES.map(stage => [stage, []]));
+  const seen = new Set();
 
-  if (!completedGroupMatches) {
-    els.bracketSnapshot.innerHTML = `<div class="bracket-note">
-      <strong>Knockout places are still TBD.</strong>
-      <span>Completed group results will appear here before the bracket slots are official.</span>
-    </div>`;
-    return;
+  function visit(match) {
+    if (!match || seen.has(match.id) || !ordered.has(match.stage)) return;
+    const feeders = splitTeams(match.matchup)
+      .map(team => team.match(/^W(\d+)$/i)?.[1])
+      .filter(Boolean)
+      .map(id => matchMap.get(id));
+
+    feeders.forEach(visit);
+    seen.add(match.id);
+    ordered.get(match.stage).push(match);
   }
 
-  const groups = new Map();
-  standings.forEach(row => {
-    if (!groups.has(row.group)) groups.set(row.group, []);
-    groups.get(row.group).push(row);
+  const final = [...matchMap.values()].find(match => match.stage === 'Final');
+  visit(final);
+
+  BRACKET_STAGES.forEach(stage => {
+    const unlinked = [...matchMap.values()]
+      .filter(match => match.stage === stage && !seen.has(match.id))
+      .sort((a, b) => a.id.localeCompare(b.id, undefined, { numeric: true }));
+    unlinked.forEach(match => {
+      seen.add(match.id);
+      ordered.get(stage).push(match);
+    });
   });
 
-  els.bracketSnapshot.innerHTML = `
-    <div class="bracket-note">
-      <strong>Current qualification picture</strong>
-      <span>Based on ${completedGroupMatches} completed group-stage match${completedGroupMatches === 1 ? '' : 'es'}. Top two advance; third-place teams are still comparison-dependent.</span>
-    </div>
-    <div class="bracket-groups">
-      ${[...groups.entries()].map(([group, rows]) => `<section class="bracket-group" aria-label="${html(group)} standings">
-        <h3>${html(group)}</h3>
-        ${rows.map((row, index) => `<div class="bracket-group-row${index < 2 ? ' is-advance' : index === 2 ? ' is-bubble' : ''}">
-          <span>${index + 1}</span>
-          <strong>${teamHtml(row.team)}</strong>
-          <em>${row.points} pts</em>
-          <small>${row.goalDifference > 0 ? '+' : ''}${row.goalDifference}</small>
-        </div>`).join('')}
-      </section>`).join('')}
-    </div>`;
+  return ordered;
 }
 
-function renderBracketGame(match) {
+function bracketSlot(index, matchCount) {
+  if (!matchCount) return 16;
+  const spacing = 32 / matchCount;
+  return (spacing / 2) + (index * spacing);
+}
+
+function renderBracketGame(match, slot = 0, stageIndex = 0, isLast = false, isStandalone = false) {
   const teams = splitTeams(match.matchup);
   const firstScore = scoreValue(match, 0);
   const secondScore = scoreValue(match, 1);
-  const location = [match.venue, match.location].filter(Boolean).join(' · ');
-  return `<article class="bracket-game">
+  const status = matchStatus(match);
+  const branch = stageIndex > 0 ? (2 ** (stageIndex - 1)) : 0;
+  const winnerIndex = firstScore !== null && secondScore !== null && firstScore !== secondScore
+    ? (Number(firstScore) > Number(secondScore) ? 0 : 1)
+    : -1;
+  return `<article class="bracket-game${isStandalone ? ' is-standalone' : ''}" style="--slot:${slot};--branch:${branch}">
     <div class="bracket-meta">
-      <span>${html(match.id)}</span>
-      <span>${html(formatDate(match))} · ${html(match.timeEt)}</span>
+      <span>${html(match.id)} · ${html(formatDate(match))}</span>
+      <span>${html(match.timeEt)}</span>
     </div>
-    <div class="bracket-team">
+    <div class="bracket-team${winnerIndex === 0 ? ' is-winner' : ''}">
       <span class="bracket-team-name">${teamHtml(teams[0] || 'TBD')}</span>
       <strong>${html(firstScore ?? '-')}</strong>
     </div>
-    <div class="bracket-team">
+    <div class="bracket-team${winnerIndex === 1 ? ' is-winner' : ''}">
       <span class="bracket-team-name">${teamHtml(teams[1] || 'TBD')}</span>
       <strong>${html(secondScore ?? '-')}</strong>
     </div>
-    <p>${html(location)}</p>
+    <span class="bracket-status ${statusClass(status)}">${html(status)}</span>
+    ${isLast ? '' : '<span class="bracket-outlet" aria-hidden="true"></span>'}
   </article>`;
 }
 

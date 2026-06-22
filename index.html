@@ -142,8 +142,16 @@
     </section>
 
     <section class="soccer-view is-hidden" id="bracketView" data-view-panel="bracket" aria-label="World Cup bracket">
-      <div class="bracket-snapshot" id="bracketSnapshot"></div>
-      <div class="bracket-board" id="bracketBoard"></div>
+      <div class="bracket-section-heading">
+        <div>
+          <span class="bracket-eyebrow">Knockout stage</span>
+          <h2>Road to the Final</h2>
+        </div>
+        <p>Scroll horizontally to follow each match through the tournament.</p>
+      </div>
+      <div class="bracket-scroll" tabindex="0" aria-label="Horizontally scrollable knockout bracket">
+        <div class="bracket-board" id="bracketBoard"></div>
+      </div>
     </section>
 
     <section class="soccer-sources" aria-label="Cited sources">
