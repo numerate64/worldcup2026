@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-22T03:05:02.546Z",
+  "updatedAt": "2026-06-22T03:10:02.514Z",
   "sourceUpdated": "2026-06-22",
   "canonicalSource": "https://raw.githubusercontent.com/openfootball/worldcup.json/master/2026/worldcup.json",
   "notes": [
@@ -1268,7 +1268,38 @@
       "matchup": "New Zealand vs Egypt",
       "venue": "BC Place Vancouver",
       "location": "Vancouver, British Columbia",
-      "source": "openfootball/worldcup.json"
+      "source": "openfootball/worldcup.json",
+      "status": "Final",
+      "score": {
+        "home": 1,
+        "away": 3
+      },
+      "halftimeScore": {
+        "home": 1,
+        "away": 0
+      },
+      "goals": {
+        "home": [
+          {
+            "name": "Finn Surman",
+            "minute": "15"
+          }
+        ],
+        "away": [
+          {
+            "name": "Mostafa Zico",
+            "minute": "58"
+          },
+          {
+            "name": "Mohamed Salah",
+            "minute": "67"
+          },
+          {
+            "name": "Trézéguet",
+            "minute": "82"
+          }
+        ]
+      }
     },
     {
       "id": "M041",
