@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-22T19:05:02.069Z",
+  "updatedAt": "2026-06-22T19:10:02.255Z",
   "sourceUpdated": "2026-06-22",
   "canonicalSource": "https://raw.githubusercontent.com/openfootball/worldcup.json/master/2026/worldcup.json",
   "notes": [
@@ -1757,7 +1757,29 @@
       "matchup": "Argentina vs Austria",
       "venue": "Dallas Stadium",
       "location": "Arlington, Texas",
-      "source": "openfootball/worldcup.json"
+      "source": "openfootball/worldcup.json",
+      "status": "Final",
+      "score": {
+        "home": 2,
+        "away": 0
+      },
+      "halftimeScore": {
+        "home": 1,
+        "away": 0
+      },
+      "goals": {
+        "home": [
+          {
+            "name": "Lionel Messi",
+            "minute": "38"
+          },
+          {
+            "name": "Lionel Messi",
+            "minute": "90+5"
+          }
+        ],
+        "away": []
+      }
     },
     {
       "id": "M058",
