@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-22T00:05:02.746Z",
+  "updatedAt": "2026-06-22T00:10:02.739Z",
   "sourceUpdated": "2026-06-22",
   "canonicalSource": "https://raw.githubusercontent.com/openfootball/worldcup.json/master/2026/worldcup.json",
   "notes": [
@@ -1415,7 +1415,38 @@
       "matchup": "Uruguay vs Cabo Verde",
       "venue": "Miami Stadium",
       "location": "Miami Gardens, Florida",
-      "source": "openfootball/worldcup.json"
+      "source": "openfootball/worldcup.json",
+      "status": "Final",
+      "score": {
+        "home": 2,
+        "away": 2
+      },
+      "halftimeScore": {
+        "home": 2,
+        "away": 1
+      },
+      "goals": {
+        "home": [
+          {
+            "name": "Maxi Araújo",
+            "minute": "44"
+          },
+          {
+            "name": "Agustín Cano",
+            "minute": "45+6"
+          }
+        ],
+        "away": [
+          {
+            "name": "Kevin Pina",
+            "minute": "21"
+          },
+          {
+            "name": "Hélio Varela",
+            "minute": "61"
+          }
+        ]
+      }
     },
     {
       "id": "M047",
