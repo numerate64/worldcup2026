@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-23T19:00:02.821Z",
+  "updatedAt": "2026-06-23T19:05:02.698Z",
   "sourceUpdated": "2026-06-23",
   "canonicalSource": "https://raw.githubusercontent.com/openfootball/worldcup.json/master/2026/worldcup.json",
   "notes": [
@@ -2005,7 +2005,42 @@
       "matchup": "Portugal vs Uzbekistan",
       "venue": "Houston Stadium",
       "location": "Houston, Texas",
-      "source": "openfootball/worldcup.json"
+      "source": "openfootball/worldcup.json",
+      "status": "Final",
+      "score": {
+        "home": 5,
+        "away": 0
+      },
+      "halftimeScore": {
+        "home": 3,
+        "away": 0
+      },
+      "goals": {
+        "home": [
+          {
+            "name": "Cristiano Ronaldo",
+            "minute": "6"
+          },
+          {
+            "name": "Nuno Mendes",
+            "minute": "17"
+          },
+          {
+            "name": "Cristiano Ronaldo",
+            "minute": "39"
+          },
+          {
+            "name": "Abduvohid Nematov",
+            "minute": "60",
+            "owngoal": true
+          },
+          {
+            "name": "Rafael Leão",
+            "minute": "87"
+          }
+        ],
+        "away": []
+      }
     },
     {
       "id": "M064",
