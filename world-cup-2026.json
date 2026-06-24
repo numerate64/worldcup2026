@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-24T21:00:02.831Z",
+  "updatedAt": "2026-06-24T21:05:02.437Z",
   "sourceUpdated": "2026-06-24",
   "canonicalSource": "https://raw.githubusercontent.com/openfootball/worldcup.json/master/2026/worldcup.json",
   "notes": [
@@ -414,7 +414,39 @@
       "matchup": "Bosnia & Herzegovina vs Qatar",
       "venue": "Seattle Stadium",
       "location": "Seattle, Washington",
-      "source": "openfootball/worldcup.json"
+      "source": "openfootball/worldcup.json",
+      "status": "Final",
+      "score": {
+        "home": 3,
+        "away": 1
+      },
+      "halftimeScore": {
+        "home": 2,
+        "away": 1
+      },
+      "goals": {
+        "home": [
+          {
+            "name": "Kerim Alajbegovic",
+            "minute": "29"
+          },
+          {
+            "name": "Mahmoud Abunada",
+            "minute": "34",
+            "owngoal": true
+          },
+          {
+            "name": "Ermin Mahmic",
+            "minute": "80"
+          }
+        ],
+        "away": [
+          {
+            "name": "Hassan Al-Haydos",
+            "minute": "42"
+          }
+        ]
+      }
     },
     {
       "id": "M013",
