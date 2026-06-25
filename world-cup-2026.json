@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-25T22:05:02.609Z",
+  "updatedAt": "2026-06-25T22:10:02.678Z",
   "sourceUpdated": "2026-06-25",
   "canonicalSource": "https://raw.githubusercontent.com/openfootball/worldcup.json/master/2026/worldcup.json",
   "notes": [
@@ -1080,7 +1080,29 @@
       "matchup": "Curaçao vs Ivory Coast",
       "venue": "Philadelphia Stadium",
       "location": "Philadelphia, Pennsylvania",
-      "source": "openfootball/worldcup.json"
+      "source": "openfootball/worldcup.json",
+      "status": "Final",
+      "score": {
+        "home": 0,
+        "away": 2
+      },
+      "halftimeScore": {
+        "home": 0,
+        "away": 1
+      },
+      "goals": {
+        "home": [],
+        "away": [
+          {
+            "name": "Nicolas Pépé",
+            "minute": "7"
+          },
+          {
+            "name": "Nicolas Pépé",
+            "minute": "64"
+          }
+        ]
+      }
     },
     {
       "id": "M030",
@@ -1094,7 +1116,34 @@
       "matchup": "Ecuador vs Germany",
       "venue": "New York New Jersey Stadium",
       "location": "East Rutherford, New Jersey",
-      "source": "openfootball/worldcup.json"
+      "source": "openfootball/worldcup.json",
+      "status": "Final",
+      "score": {
+        "home": 2,
+        "away": 1
+      },
+      "halftimeScore": {
+        "home": 1,
+        "away": 1
+      },
+      "goals": {
+        "home": [
+          {
+            "name": "Nilson Angulo",
+            "minute": "9"
+          },
+          {
+            "name": "Gonzalo Plata",
+            "minute": "77"
+          }
+        ],
+        "away": [
+          {
+            "name": "Leroy Sané",
+            "minute": "2"
+          }
+        ]
+      }
     },
     {
       "id": "M031",
