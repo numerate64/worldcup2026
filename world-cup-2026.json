@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-25T03:05:02.676Z",
+  "updatedAt": "2026-06-25T03:10:02.504Z",
   "sourceUpdated": "2026-06-25",
   "canonicalSource": "https://raw.githubusercontent.com/openfootball/worldcup.json/master/2026/worldcup.json",
   "notes": [
@@ -166,7 +166,33 @@
       "matchup": "Czech Republic vs Mexico",
       "venue": "Mexico City Stadium",
       "location": "Mexico City, Mexico",
-      "source": "openfootball/worldcup.json"
+      "source": "openfootball/worldcup.json",
+      "status": "Final",
+      "score": {
+        "home": 0,
+        "away": 3
+      },
+      "halftimeScore": {
+        "home": 0,
+        "away": 0
+      },
+      "goals": {
+        "home": [],
+        "away": [
+          {
+            "name": "Mateo Chávez",
+            "minute": "55"
+          },
+          {
+            "name": "Julián Quiñones",
+            "minute": "61"
+          },
+          {
+            "name": "Álvaro Fidalgo",
+            "minute": "90+4"
+          }
+        ]
+      }
     },
     {
       "id": "M006",
@@ -180,7 +206,25 @@
       "matchup": "South Africa vs South Korea",
       "venue": "Monterrey Stadium",
       "location": "Monterrey, Mexico",
-      "source": "openfootball/worldcup.json"
+      "source": "openfootball/worldcup.json",
+      "status": "Final",
+      "score": {
+        "home": 1,
+        "away": 0
+      },
+      "halftimeScore": {
+        "home": 0,
+        "away": 0
+      },
+      "goals": {
+        "home": [
+          {
+            "name": "Thapelo Maseko",
+            "minute": "63"
+          }
+        ],
+        "away": []
+      }
     },
     {
       "id": "M007",
