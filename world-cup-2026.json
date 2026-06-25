@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-25T00:05:02.166Z",
+  "updatedAt": "2026-06-25T00:10:02.092Z",
   "sourceUpdated": "2026-06-25",
   "canonicalSource": "https://raw.githubusercontent.com/openfootball/worldcup.json/master/2026/worldcup.json",
   "notes": [
@@ -601,7 +601,33 @@
       "matchup": "Scotland vs Brazil",
       "venue": "Miami Stadium",
       "location": "Miami Gardens, Florida",
-      "source": "openfootball/worldcup.json"
+      "source": "openfootball/worldcup.json",
+      "status": "Final",
+      "score": {
+        "home": 0,
+        "away": 3
+      },
+      "halftimeScore": {
+        "home": 0,
+        "away": 2
+      },
+      "goals": {
+        "home": [],
+        "away": [
+          {
+            "name": "Vinícius Júnior",
+            "minute": "7"
+          },
+          {
+            "name": "Vinícius Júnior",
+            "minute": "45+3"
+          },
+          {
+            "name": "Matheus Cunha",
+            "minute": "60"
+          }
+        ]
+      }
     },
     {
       "id": "M018",
@@ -615,7 +641,47 @@
       "matchup": "Morocco vs Haiti",
       "venue": "Atlanta Stadium",
       "location": "Atlanta, Georgia",
-      "source": "openfootball/worldcup.json"
+      "source": "openfootball/worldcup.json",
+      "status": "Final",
+      "score": {
+        "home": 4,
+        "away": 2
+      },
+      "halftimeScore": {
+        "home": 2,
+        "away": 2
+      },
+      "goals": {
+        "home": [
+          {
+            "name": "Achraf Hakimi",
+            "minute": "39"
+          },
+          {
+            "name": "Ismael Saibari",
+            "minute": "45+1"
+          },
+          {
+            "name": "Soufiane Rahimi",
+            "minute": "78"
+          },
+          {
+            "name": "Gessime Yassine",
+            "minute": "89"
+          }
+        ],
+        "away": [
+          {
+            "name": "Yassine Bounou",
+            "minute": "10",
+            "owngoal": true
+          },
+          {
+            "name": "Wilson Isidor",
+            "minute": "43"
+          }
+        ]
+      }
     },
     {
       "id": "M019",
