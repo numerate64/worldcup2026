@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-25T15:25:02.230Z",
+  "updatedAt": "2026-06-25T15:30:02.203Z",
   "sourceUpdated": "2026-06-25",
   "canonicalSource": "https://raw.githubusercontent.com/openfootball/worldcup.json/master/2026/worldcup.json",
   "notes": [
@@ -2449,9 +2449,9 @@
       "sourceTime": "12:00 UTC-7",
       "stage": "Round of 32",
       "group": "",
-      "matchup": "2A vs 2B",
-      "venue": "Los Angeles Stadium",
-      "location": "Inglewood, California",
+      "matchup": "South Africa vs Canada",
+      "venue": "Los Angeles (Inglewood)",
+      "location": "Los Angeles (Inglewood)",
       "source": "openfootball/worldcup.json"
     },
     {
@@ -2477,9 +2477,9 @@
       "sourceTime": "19:00 UTC-6",
       "stage": "Round of 32",
       "group": "",
-      "matchup": "1F vs 2C",
-      "venue": "Boston Stadium",
-      "location": "Foxborough, Massachusetts",
+      "matchup": "1F vs Morocco",
+      "venue": "Monterrey (Guadalupe)",
+      "location": "Monterrey (Guadalupe)",
       "source": "openfootball/worldcup.json"
     },
     {
@@ -2491,9 +2491,9 @@
       "sourceTime": "12:00 UTC-5",
       "stage": "Round of 32",
       "group": "",
-      "matchup": "1C vs 2F",
-      "venue": "Monterrey Stadium",
-      "location": "Monterrey, Mexico",
+      "matchup": "Brazil vs 2F",
+      "venue": "Houston",
+      "location": "Houston",
       "source": "openfootball/worldcup.json"
     },
     {
@@ -2617,9 +2617,9 @@
       "sourceTime": "20:00 UTC-7",
       "stage": "Round of 32",
       "group": "",
-      "matchup": "1B vs 3E/F/G/I/J",
-      "venue": "BC Place Vancouver",
-      "location": "Vancouver, British Columbia",
+      "matchup": "Switzerland vs 3E/F/G/I/J",
+      "venue": "Vancouver",
+      "location": "Vancouver",
       "source": "openfootball/worldcup.json"
     },
     {
