@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-26T04:10:02.612Z",
+  "updatedAt": "2026-06-26T04:15:02.492Z",
   "sourceUpdated": "2026-06-26",
   "canonicalSource": "https://raw.githubusercontent.com/openfootball/worldcup.json/master/2026/worldcup.json",
   "notes": [
@@ -894,7 +894,42 @@
       "matchup": "Turkey vs USA",
       "venue": "Los Angeles Stadium",
       "location": "Inglewood, California",
-      "source": "openfootball/worldcup.json"
+      "source": "openfootball/worldcup.json",
+      "status": "Final",
+      "score": {
+        "home": 3,
+        "away": 2
+      },
+      "halftimeScore": {
+        "home": 2,
+        "away": 1
+      },
+      "goals": {
+        "home": [
+          {
+            "name": "Arda Güler",
+            "minute": "10"
+          },
+          {
+            "name": "Baris Alper Yilmaz",
+            "minute": "31"
+          },
+          {
+            "name": "Kaan Ayhan",
+            "minute": "90+8"
+          }
+        ],
+        "away": [
+          {
+            "name": "Auston Trusty",
+            "minute": "3"
+          },
+          {
+            "name": "Sebastian Berhalter",
+            "minute": "49"
+          }
+        ]
+      }
     },
     {
       "id": "M024",
