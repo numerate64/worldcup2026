@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-26T12:45:02.726Z",
+  "updatedAt": "2026-06-26T12:50:02.710Z",
   "sourceUpdated": "2026-06-26",
   "canonicalSource": "https://raw.githubusercontent.com/openfootball/worldcup.json/master/2026/worldcup.json",
   "notes": [
@@ -2625,7 +2625,7 @@
       "sourceTime": "19:00 UTC-6",
       "stage": "Round of 32",
       "group": "",
-      "matchup": "1F vs Morocco",
+      "matchup": "Netherlands vs Morocco",
       "venue": "Monterrey (Guadalupe)",
       "location": "Monterrey (Guadalupe)",
       "source": "openfootball/worldcup.json"
@@ -2639,7 +2639,7 @@
       "sourceTime": "12:00 UTC-5",
       "stage": "Round of 32",
       "group": "",
-      "matchup": "Brazil vs 2F",
+      "matchup": "Brazil vs Japan",
       "venue": "Houston",
       "location": "Houston",
       "source": "openfootball/worldcup.json"
@@ -2667,9 +2667,9 @@
       "sourceTime": "12:00 UTC-5",
       "stage": "Round of 32",
       "group": "",
-      "matchup": "2E vs 2I",
-      "venue": "New York New Jersey Stadium",
-      "location": "East Rutherford, New Jersey",
+      "matchup": "Ivory Coast vs 2I",
+      "venue": "Dallas (Arlington)",
+      "location": "Dallas (Arlington)",
       "source": "openfootball/worldcup.json"
     },
     {
@@ -2807,9 +2807,9 @@
       "sourceTime": "13:00 UTC-5",
       "stage": "Round of 32",
       "group": "",
-      "matchup": "2D vs 2G",
-      "venue": "Kansas City Stadium",
-      "location": "Kansas City, Missouri",
+      "matchup": "Australia vs 2G",
+      "venue": "Dallas (Arlington)",
+      "location": "Dallas (Arlington)",
       "source": "openfootball/worldcup.json"
     },
     {
