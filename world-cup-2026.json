@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-26T21:05:02.836Z",
+  "updatedAt": "2026-06-26T21:10:02.776Z",
   "sourceUpdated": "2026-06-26",
   "canonicalSource": "https://raw.githubusercontent.com/openfootball/worldcup.json/master/2026/worldcup.json",
   "notes": [
@@ -2069,7 +2069,41 @@
       "matchup": "Senegal vs Iraq",
       "venue": "Toronto Stadium",
       "location": "Toronto, Ontario",
-      "source": "openfootball/worldcup.json"
+      "source": "openfootball/worldcup.json",
+      "status": "Final",
+      "score": {
+        "home": 5,
+        "away": 0
+      },
+      "halftimeScore": {
+        "home": 1,
+        "away": 0
+      },
+      "goals": {
+        "home": [
+          {
+            "name": "Habib Diarra",
+            "minute": "4"
+          },
+          {
+            "name": "Ismaïla Sarr",
+            "minute": "56"
+          },
+          {
+            "name": "Pape Gueye",
+            "minute": "59"
+          },
+          {
+            "name": "Pape Gueye",
+            "minute": "71"
+          },
+          {
+            "name": "Iliman Ndiaye",
+            "minute": "82"
+          }
+        ],
+        "away": []
+      }
     },
     {
       "id": "M055",
