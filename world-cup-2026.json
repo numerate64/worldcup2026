@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-26T21:00:02.682Z",
+  "updatedAt": "2026-06-26T21:05:02.836Z",
   "sourceUpdated": "2026-06-26",
   "canonicalSource": "https://raw.githubusercontent.com/openfootball/worldcup.json/master/2026/worldcup.json",
   "notes": [
@@ -2020,7 +2020,42 @@
       "matchup": "Norway vs France",
       "venue": "Boston Stadium",
       "location": "Foxborough, Massachusetts",
-      "source": "openfootball/worldcup.json"
+      "source": "openfootball/worldcup.json",
+      "status": "Final",
+      "score": {
+        "home": 1,
+        "away": 4
+      },
+      "halftimeScore": {
+        "home": 1,
+        "away": 3
+      },
+      "goals": {
+        "home": [
+          {
+            "name": "Thelo Aasgaard",
+            "minute": "21"
+          }
+        ],
+        "away": [
+          {
+            "name": "Ousmane Dembélé",
+            "minute": "7"
+          },
+          {
+            "name": "Ousmane Dembélé",
+            "minute": "20"
+          },
+          {
+            "name": "Ousmane Dembélé",
+            "minute": "32"
+          },
+          {
+            "name": "Désiré Doué",
+            "minute": "90+4"
+          }
+        ]
+      }
     },
     {
       "id": "M054",
