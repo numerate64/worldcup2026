@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-28T01:35:02.387Z",
+  "updatedAt": "2026-06-28T01:40:02.239Z",
   "sourceUpdated": "2026-06-28",
   "canonicalSource": "https://raw.githubusercontent.com/openfootball/worldcup.json/master/2026/worldcup.json",
   "notes": [
@@ -2584,7 +2584,39 @@
       "matchup": "DR Congo vs Uzbekistan",
       "venue": "Atlanta Stadium",
       "location": "Atlanta, Georgia",
-      "source": "openfootball/worldcup.json"
+      "source": "openfootball/worldcup.json",
+      "status": "Final",
+      "score": {
+        "home": 3,
+        "away": 1
+      },
+      "halftimeScore": {
+        "home": 0,
+        "away": 1
+      },
+      "goals": {
+        "home": [
+          {
+            "name": "Yoane Wissa",
+            "minute": "68",
+            "penalty": true
+          },
+          {
+            "name": "Fiston Mayele",
+            "minute": "78"
+          },
+          {
+            "name": "Yoane Wissa",
+            "minute": "90+1"
+          }
+        ],
+        "away": [
+          {
+            "name": "Eldor Shomurodov",
+            "minute": "10"
+          }
+        ]
+      }
     },
     {
       "id": "M067",
