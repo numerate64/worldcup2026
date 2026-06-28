@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-28T04:05:02.224Z",
+  "updatedAt": "2026-06-28T04:10:02.292Z",
   "sourceUpdated": "2026-06-28",
   "canonicalSource": "https://raw.githubusercontent.com/openfootball/worldcup.json/master/2026/worldcup.json",
   "notes": [
@@ -2370,7 +2370,46 @@
       "matchup": "Algeria vs Austria",
       "venue": "Kansas City Stadium",
       "location": "Kansas City, Missouri",
-      "source": "openfootball/worldcup.json"
+      "source": "openfootball/worldcup.json",
+      "status": "Final",
+      "score": {
+        "home": 3,
+        "away": 3
+      },
+      "halftimeScore": {
+        "home": 1,
+        "away": 1
+      },
+      "goals": {
+        "home": [
+          {
+            "name": "Rafik Belghali",
+            "minute": "45"
+          },
+          {
+            "name": "Riyad Mahrez",
+            "minute": "60"
+          },
+          {
+            "name": "Riyad Mahrez",
+            "minute": "90+3"
+          }
+        ],
+        "away": [
+          {
+            "name": "Marko Arnautovic",
+            "minute": "28"
+          },
+          {
+            "name": "Marcel Sabitzer",
+            "minute": "55"
+          },
+          {
+            "name": "Sasa Kalajdzic",
+            "minute": "90+6"
+          }
+        ]
+      }
     },
     {
       "id": "M060",
@@ -2384,7 +2423,39 @@
       "matchup": "Jordan vs Argentina",
       "venue": "Dallas Stadium",
       "location": "Arlington, Texas",
-      "source": "openfootball/worldcup.json"
+      "source": "openfootball/worldcup.json",
+      "status": "Final",
+      "score": {
+        "home": 1,
+        "away": 3
+      },
+      "halftimeScore": {
+        "home": 0,
+        "away": 2
+      },
+      "goals": {
+        "home": [
+          {
+            "name": "Mousa Al-Tamari",
+            "minute": "55"
+          }
+        ],
+        "away": [
+          {
+            "name": "Giovani Lo Celso",
+            "minute": "19"
+          },
+          {
+            "name": "Lautaro Martínez",
+            "minute": "31",
+            "penalty": true
+          },
+          {
+            "name": "Lionel Messi",
+            "minute": "80"
+          }
+        ]
+      }
     },
     {
       "id": "M061",
