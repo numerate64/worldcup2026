@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-29T19:05:02.016Z",
+  "updatedAt": "2026-06-29T19:10:02.153Z",
   "sourceUpdated": "2026-06-29",
   "canonicalSource": "https://raw.githubusercontent.com/openfootball/worldcup.json/master/2026/worldcup.json",
   "notes": [
@@ -2979,7 +2979,34 @@
       "matchup": "Brazil vs Japan",
       "venue": "Houston",
       "location": "Houston",
-      "source": "openfootball/worldcup.json"
+      "source": "openfootball/worldcup.json",
+      "status": "Final",
+      "score": {
+        "home": 2,
+        "away": 1
+      },
+      "halftimeScore": {
+        "home": 0,
+        "away": 1
+      },
+      "goals": {
+        "home": [
+          {
+            "name": "Casemiro",
+            "minute": "56"
+          },
+          {
+            "name": "Gabriel Martinelli",
+            "minute": "90+5"
+          }
+        ],
+        "away": [
+          {
+            "name": "Kaishu Sano",
+            "minute": "29"
+          }
+        ]
+      }
     },
     {
       "id": "M077",
