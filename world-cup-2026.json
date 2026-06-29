@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-29T23:30:02.375Z",
+  "updatedAt": "2026-06-29T23:35:02.563Z",
   "sourceUpdated": "2026-06-29",
   "canonicalSource": "https://raw.githubusercontent.com/openfootball/worldcup.json/master/2026/worldcup.json",
   "notes": [
@@ -2951,7 +2951,30 @@
       "matchup": "Germany vs Paraguay",
       "venue": "Boston (Foxborough)",
       "location": "Boston (Foxborough)",
-      "source": "openfootball/worldcup.json"
+      "source": "openfootball/worldcup.json",
+      "status": "Final",
+      "score": {
+        "home": 1,
+        "away": 1
+      },
+      "halftimeScore": {
+        "home": 0,
+        "away": 1
+      },
+      "goals": {
+        "home": [
+          {
+            "name": "Kai Havertz",
+            "minute": "54"
+          }
+        ],
+        "away": [
+          {
+            "name": "Julio Enciso",
+            "minute": "42"
+          }
+        ]
+      }
     },
     {
       "id": "M075",
