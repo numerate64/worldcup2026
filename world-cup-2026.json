@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-30T19:00:02.515Z",
+  "updatedAt": "2026-06-30T19:05:02.107Z",
   "sourceUpdated": "2026-06-30",
   "canonicalSource": "https://raw.githubusercontent.com/openfootball/worldcup.json/master/2026/worldcup.json",
   "notes": [
@@ -3080,7 +3080,34 @@
       "matchup": "Ivory Coast vs Norway",
       "venue": "Dallas (Arlington)",
       "location": "Dallas (Arlington)",
-      "source": "openfootball/worldcup.json"
+      "source": "openfootball/worldcup.json",
+      "status": "Final",
+      "score": {
+        "home": 1,
+        "away": 2
+      },
+      "halftimeScore": {
+        "home": 0,
+        "away": 1
+      },
+      "goals": {
+        "home": [
+          {
+            "name": "Amad Diallo",
+            "minute": "74"
+          }
+        ],
+        "away": [
+          {
+            "name": "Antonio Nusa",
+            "minute": "39"
+          },
+          {
+            "name": "Erling Haaland",
+            "minute": "86"
+          }
+        ]
+      }
     },
     {
       "id": "M079",
