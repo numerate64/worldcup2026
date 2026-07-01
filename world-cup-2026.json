@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-01T18:10:02.316Z",
+  "updatedAt": "2026-07-01T22:55:02.064Z",
   "sourceUpdated": "2026-07-01",
   "canonicalSource": "https://raw.githubusercontent.com/openfootball/worldcup.json/master/2026/worldcup.json",
   "notes": [
@@ -3240,7 +3240,43 @@
       "matchup": "Belgium vs Senegal",
       "venue": "Seattle",
       "location": "Seattle",
-      "source": "openfootball/worldcup.json"
+      "source": "openfootball/worldcup.json",
+      "status": "Final",
+      "score": {
+        "home": 2,
+        "away": 2
+      },
+      "halftimeScore": {
+        "home": 0,
+        "away": 1
+      },
+      "goals": {
+        "home": [
+          {
+            "name": "Romelu Lukaku",
+            "minute": "86"
+          },
+          {
+            "name": "Youri Tielemans",
+            "minute": "89"
+          },
+          {
+            "name": "Youri Tielemans",
+            "minute": "120+5",
+            "penalty": true
+          }
+        ],
+        "away": [
+          {
+            "name": "Habib Diarra",
+            "minute": "25"
+          },
+          {
+            "name": "Ismaïla Sarr",
+            "minute": "51"
+          }
+        ]
+      }
     },
     {
       "id": "M083",
