@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-01T00:10:02.659Z",
+  "updatedAt": "2026-07-01T07:25:02.607Z",
   "sourceUpdated": "2026-07-01",
   "canonicalSource": "https://raw.githubusercontent.com/openfootball/worldcup.json/master/2026/worldcup.json",
   "notes": [
@@ -3286,7 +3286,7 @@
       "sourceTime": "17:00 UTC-4",
       "stage": "Round of 16",
       "group": "",
-      "matchup": "W74 vs W77",
+      "matchup": "Paraguay vs France",
       "venue": "Houston Stadium",
       "location": "Houston, Texas",
       "source": "openfootball/worldcup.json"
@@ -3314,7 +3314,7 @@
       "sourceTime": "16:00 UTC-4",
       "stage": "Round of 16",
       "group": "",
-      "matchup": "W76 vs W78",
+      "matchup": "Brazil vs Norway",
       "venue": "New York New Jersey Stadium",
       "location": "East Rutherford, New Jersey",
       "source": "openfootball/worldcup.json"
