@@ -143,6 +143,14 @@ function sourceScore(score) {
   return { home: ft[0], away: ft[1] };
 }
 
+function stablePayload(value) {
+  return JSON.stringify({
+    ...value,
+    updatedAt: undefined,
+    sourceUpdated: undefined
+  });
+}
+
 function transformMatch(sourceMatch, index, metadata) {
   const id = `M${String(index + 1).padStart(3, '0')}`;
   const score = sourceScore(sourceMatch.score);
@@ -212,6 +220,11 @@ async function main() {
       queryParameters: ['search or q', 'stage', 'group', 'venue']
     }
   };
+
+  if (stablePayload(existing) === stablePayload(payload)) {
+    console.log(`No substantive World Cup data changes for ${matches.length} matches`);
+    return;
+  }
 
   fs.writeFileSync(TARGET_PATH, `${JSON.stringify(payload, null, 2)}\n`);
   console.log(`Synced ${matches.length} matches from openfootball/worldcup.json`);
