@@ -24,6 +24,10 @@ const TEAM_ALIASES = new Map([
   ['bosnia & herzegovina', 'bosnia & herzegovina']
 ]);
 
+const MATCHUP_OVERRIDES = new Map([
+  ['M090', 'W73 vs W75']
+]);
+
 function fetchJson(url) {
   return new Promise((resolve, reject) => {
     https.get(url, response => {
@@ -83,11 +87,13 @@ function displayTeamName(value) {
 
 function existingMetadata(existing) {
   const byMatchup = new Map();
+  const byId = new Map();
   for (const match of existing.matches || []) {
+    if (match.id) byId.set(match.id, match);
     const teams = String(match.matchup || '').split(/\s+vs\.?\s+/i);
     if (teams.length >= 2) byMatchup.set(matchupKey(teams[0], teams[1]), match);
   }
-  return { byMatchup };
+  return { byId, byMatchup };
 }
 
 function stageFromRound(round) {
@@ -140,9 +146,12 @@ function sourceScore(score) {
 function transformMatch(sourceMatch, index, metadata) {
   const id = `M${String(index + 1).padStart(3, '0')}`;
   const score = sourceScore(sourceMatch.score);
-  const existing = metadata.byMatchup.get(matchupKey(sourceMatch.team1, sourceMatch.team2))
+  const existing = metadata.byId.get(id)
+    || metadata.byMatchup.get(matchupKey(sourceMatch.team1, sourceMatch.team2))
     || {};
   const timing = parseSourceTime(sourceMatch.date, sourceMatch.time);
+  const matchup = MATCHUP_OVERRIDES.get(id)
+    || `${displayTeamName(sourceMatch.team1)} vs ${displayTeamName(sourceMatch.team2)}`;
 
   return {
     id,
@@ -158,10 +167,12 @@ function transformMatch(sourceMatch, index, metadata) {
     sourceTime: sourceMatch.time,
     stage: stageFromRound(sourceMatch.round),
     group: sourceMatch.group || '',
-    matchup: `${displayTeamName(sourceMatch.team1)} vs ${displayTeamName(sourceMatch.team2)}`,
+    matchup,
     venue: existing.venue || sourceMatch.ground || '',
     location: existing.location || sourceMatch.ground || '',
     source: 'openfootball/worldcup.json',
+    ...(existing.winner ? { winner: existing.winner } : {}),
+    ...(existing.loser ? { loser: existing.loser } : {}),
     ...(score ? { status: 'Final', score } : {}),
     ...(sourceMatch.score?.ht ? { halftimeScore: { home: sourceMatch.score.ht[0], away: sourceMatch.score.ht[1] } } : {}),
     ...(sourceMatch.goals1 || sourceMatch.goals2 ? {

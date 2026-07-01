@@ -11,6 +11,9 @@ const BRACKET_STAGE_LABELS = {
   Semifinals: 'Semi-finals',
   Final: 'Final'
 };
+const BRACKET_MATCHUP_OVERRIDES = {
+  M090: 'W73 vs W75'
+};
 const TEAM_FLAGS = {
   Algeria: '🇩🇿',
   Argentina: '🇦🇷',
@@ -250,6 +253,53 @@ function scoreValue(match, index) {
   }
   if (Array.isArray(score) && score[index] !== undefined) return score[index];
   return null;
+}
+
+function matchNumber(match) {
+  return String(Number(String(match?.id || '').replace(/\D/g, '')));
+}
+
+function matchupForMatch(match) {
+  return BRACKET_MATCHUP_OVERRIDES[match?.id] || match?.matchup || '';
+}
+
+function knockoutMatchMap() {
+  return new Map(
+    matches
+      .filter(match => KNOCKOUT_STAGES.includes(match.stage))
+      .map(match => [matchNumber(match), match])
+  );
+}
+
+function resultTeam(match, result = 'winner') {
+  if (!match) return '';
+  const explicit = match[result];
+  if (explicit) return displayTeamName(explicit);
+
+  const teams = splitTeams(matchupForMatch(match));
+  const firstScore = numericScore(match, 0);
+  const secondScore = numericScore(match, 1);
+  if (teams.length < 2 || firstScore === null || secondScore === null || firstScore === secondScore) {
+    return '';
+  }
+
+  const firstAdvanced = result === 'winner' ? firstScore > secondScore : firstScore < secondScore;
+  return teams[firstAdvanced ? 0 : 1] || '';
+}
+
+function resolveBracketTeam(team, matchMap) {
+  const reference = String(team || '').trim().match(/^([WL])(\d+)$/i);
+  if (!reference) return displayTeamName(team);
+
+  const sourceMatch = matchMap.get(reference[2]);
+  const result = reference[1].toUpperCase() === 'W' ? 'winner' : 'loser';
+  return resultTeam(sourceMatch, result) || reference[0].toUpperCase();
+}
+
+function resolvedBracketMatchup(match, matchMap = knockoutMatchMap()) {
+  return splitTeams(matchupForMatch(match))
+    .map(team => resolveBracketTeam(team, matchMap))
+    .join(' vs ');
 }
 
 function matchStatus(match) {
@@ -603,10 +653,7 @@ function setPointsSort(key) {
 
 function renderBracket() {
   const knockoutMatches = matches.filter(match => KNOCKOUT_STAGES.includes(match.stage));
-  const matchMap = new Map(knockoutMatches.map(match => [
-    String(Number(match.id.replace(/\D/g, ''))),
-    match
-  ]));
+  const matchMap = knockoutMatchMap();
   const orderedRounds = bracketRoundOrder(matchMap);
   const thirdPlace = knockoutMatches.find(match => match.stage === 'Third Place');
 
@@ -646,7 +693,7 @@ function bracketRoundOrder(matchMap) {
 
   function visit(match) {
     if (!match || seen.has(match.id) || !ordered.has(match.stage)) return;
-    const feeders = splitTeams(match.matchup)
+    const feeders = splitTeams(matchupForMatch(match))
       .map(team => team.match(/^W(\d+)$/i)?.[1])
       .filter(Boolean)
       .map(id => matchMap.get(id));
@@ -679,13 +726,15 @@ function bracketSlot(index, matchCount) {
 }
 
 function renderBracketGame(match, slot = 0, stageIndex = 0, isLast = false, isStandalone = false) {
-  const teams = splitTeams(match.matchup);
+  const matchMap = knockoutMatchMap();
+  const teams = splitTeams(resolvedBracketMatchup(match, matchMap));
   const firstScore = scoreValue(match, 0);
   const secondScore = scoreValue(match, 1);
   const status = matchStatus(match);
   const branch = stageIndex > 0 ? (2 ** (stageIndex - 1)) : 0;
-  const winnerIndex = firstScore !== null && secondScore !== null && firstScore !== secondScore
-    ? (Number(firstScore) > Number(secondScore) ? 0 : 1)
+  const winner = resultTeam(match, 'winner');
+  const winnerIndex = winner
+    ? teams.findIndex(team => normalize(team) === normalize(winner))
     : -1;
   return `<article class="bracket-game${isStandalone ? ' is-standalone' : ''}" style="--slot:${slot};--branch:${branch}">
     <div class="bracket-meta">
