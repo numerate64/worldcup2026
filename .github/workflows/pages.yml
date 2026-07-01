@@ -9,6 +9,7 @@ on:
       - "soccer.js"
       - "styles.css"
       - "world-cup-2026.json"
+      - "scripts/sync-worldcup-openfootball.js"
   workflow_dispatch:
 
 permissions:
