@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-01T07:30:02.608Z",
+  "updatedAt": "2026-07-01T11:50:02.274Z",
   "sourceUpdated": "2026-07-01",
   "canonicalSource": "https://raw.githubusercontent.com/openfootball/worldcup.json/master/2026/worldcup.json",
   "notes": [
@@ -3350,7 +3350,7 @@
       "sourceTime": "18:00 UTC-6",
       "stage": "Round of 16",
       "group": "",
-      "matchup": "W79 vs W80",
+      "matchup": "Mexico vs W80",
       "venue": "Mexico City Stadium",
       "location": "Mexico City, Mexico",
       "source": "openfootball/worldcup.json"
