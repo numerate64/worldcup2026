@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-07-01T22:55:02.064Z",
-  "sourceUpdated": "2026-07-01",
+  "updatedAt": "2026-07-02T02:15:02.217Z",
+  "sourceUpdated": "2026-07-02",
   "canonicalSource": "https://raw.githubusercontent.com/openfootball/worldcup.json/master/2026/worldcup.json",
   "notes": [
     "Fixtures and results are synced from openfootball/worldcup.json.",
@@ -3226,7 +3226,29 @@
       "matchup": "USA vs Bosnia & Herzegovina",
       "venue": "San Francisco Bay Area (Santa Clara)",
       "location": "San Francisco Bay Area (Santa Clara)",
-      "source": "openfootball/worldcup.json"
+      "source": "openfootball/worldcup.json",
+      "status": "Final",
+      "score": {
+        "home": 2,
+        "away": 0
+      },
+      "halftimeScore": {
+        "home": 1,
+        "away": 0
+      },
+      "goals": {
+        "home": [
+          {
+            "name": "Folarin Balogun",
+            "minute": "45"
+          },
+          {
+            "name": "Malik Tillman",
+            "minute": "82"
+          }
+        ],
+        "away": []
+      }
     },
     {
       "id": "M082",
