@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-02T02:15:02.217Z",
+  "updatedAt": "2026-07-02T07:25:02.823Z",
   "sourceUpdated": "2026-07-02",
   "canonicalSource": "https://raw.githubusercontent.com/openfootball/worldcup.json/master/2026/worldcup.json",
   "notes": [
@@ -3435,7 +3435,7 @@
       "sourceTime": "18:00 UTC-6",
       "stage": "Round of 16",
       "group": "",
-      "matchup": "Mexico vs W80",
+      "matchup": "Mexico vs England",
       "venue": "Mexico City Stadium",
       "location": "Mexico City, Mexico",
       "source": "openfootball/worldcup.json"
@@ -3463,7 +3463,7 @@
       "sourceTime": "17:00 UTC-7",
       "stage": "Round of 16",
       "group": "",
-      "matchup": "W81 vs W82",
+      "matchup": "USA vs Belgium",
       "venue": "Seattle Stadium",
       "location": "Seattle, Washington",
       "source": "openfootball/worldcup.json"
